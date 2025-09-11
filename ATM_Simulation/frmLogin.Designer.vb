@@ -34,9 +34,12 @@ Partial Class frmLogin
         PictureBox1 = New PictureBox()
         Panel2 = New Panel()
         Panel3 = New Panel()
+        PictureBox3 = New PictureBox()
         Panel1.SuspendLayout()
         CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
         Panel2.SuspendLayout()
+        Panel3.SuspendLayout()
+        CType(PictureBox3, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' Label1
@@ -44,7 +47,7 @@ Partial Class frmLogin
         Label1.AutoSize = True
         Label1.Font = New Font("Century Gothic", 12F, FontStyle.Bold)
         Label1.ForeColor = Color.LightGray
-        Label1.Location = New Point(17, 73)
+        Label1.Location = New Point(48, 63)
         Label1.Name = "Label1"
         Label1.Size = New Size(147, 19)
         Label1.TabIndex = 0
@@ -55,7 +58,7 @@ Partial Class frmLogin
         Label2.AutoSize = True
         Label2.Font = New Font("Century Gothic", 12F, FontStyle.Bold)
         Label2.ForeColor = Color.LightGray
-        Label2.Location = New Point(17, 123)
+        Label2.Location = New Point(48, 113)
         Label2.Name = "Label2"
         Label2.Size = New Size(38, 19)
         Label2.TabIndex = 1
@@ -64,7 +67,7 @@ Partial Class frmLogin
         ' txtAccNum
         ' 
         txtAccNum.Font = New Font("Lucida Fax", 11.25F, FontStyle.Bold)
-        txtAccNum.Location = New Point(177, 73)
+        txtAccNum.Location = New Point(208, 63)
         txtAccNum.Name = "txtAccNum"
         txtAccNum.Size = New Size(200, 25)
         txtAccNum.TabIndex = 2
@@ -72,7 +75,7 @@ Partial Class frmLogin
         ' txtPIN
         ' 
         txtPIN.Font = New Font("Lucida Fax", 11.25F, FontStyle.Bold)
-        txtPIN.Location = New Point(177, 123)
+        txtPIN.Location = New Point(208, 113)
         txtPIN.Name = "txtPIN"
         txtPIN.PasswordChar = "*"c
         txtPIN.Size = New Size(200, 25)
@@ -85,7 +88,7 @@ Partial Class frmLogin
         btnLogin.FlatStyle = FlatStyle.Flat
         btnLogin.Font = New Font("Century Gothic", 11.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         btnLogin.ForeColor = Color.White
-        btnLogin.Location = New Point(177, 173)
+        btnLogin.Location = New Point(208, 163)
         btnLogin.Name = "btnLogin"
         btnLogin.Size = New Size(200, 35)
         btnLogin.TabIndex = 4
@@ -114,7 +117,7 @@ Partial Class frmLogin
         Panel1.Controls.Add(lbl1)
         Panel1.Location = New Point(0, 228)
         Panel1.Name = "Panel1"
-        Panel1.Size = New Size(409, 164)
+        Panel1.Size = New Size(449, 164)
         Panel1.TabIndex = 8
         ' 
         ' lblEnter
@@ -123,7 +126,7 @@ Partial Class frmLogin
         lblEnter.BackColor = Color.ForestGreen
         lblEnter.BorderStyle = BorderStyle.Fixed3D
         lblEnter.Font = New Font("Century Gothic", 14.25F, FontStyle.Bold)
-        lblEnter.Location = New Point(301, 78)
+        lblEnter.Location = New Point(321, 80)
         lblEnter.Name = "lblEnter"
         lblEnter.Size = New Size(87, 25)
         lblEnter.TabIndex = 36
@@ -135,7 +138,7 @@ Partial Class frmLogin
         btnDel.BackColor = Color.Sienna
         btnDel.BorderStyle = BorderStyle.Fixed3D
         btnDel.Font = New Font("Century Gothic", 14.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        btnDel.Location = New Point(301, 112)
+        btnDel.Location = New Point(321, 114)
         btnDel.Name = "btnDel"
         btnDel.Size = New Size(87, 25)
         btnDel.TabIndex = 35
@@ -148,7 +151,7 @@ Partial Class frmLogin
         lblCancel.BorderStyle = BorderStyle.Fixed3D
         lblCancel.Font = New Font("Century Gothic", 14.25F, FontStyle.Bold)
         lblCancel.ForeColor = SystemColors.ControlLight
-        lblCancel.Location = New Point(301, 11)
+        lblCancel.Location = New Point(321, 13)
         lblCancel.Name = "lblCancel"
         lblCancel.Size = New Size(85, 25)
         lblCancel.TabIndex = 34
@@ -161,7 +164,7 @@ Partial Class frmLogin
         lblClear.BorderStyle = BorderStyle.Fixed3D
         lblClear.Font = New Font("Century Gothic", 14.25F, FontStyle.Bold)
         lblClear.ForeColor = SystemColors.Desktop
-        lblClear.Location = New Point(301, 43)
+        lblClear.Location = New Point(321, 45)
         lblClear.Name = "lblClear"
         lblClear.Size = New Size(88, 25)
         lblClear.TabIndex = 33
@@ -174,7 +177,7 @@ Partial Class frmLogin
         lbl0.BorderStyle = BorderStyle.Fixed3D
         lbl0.Font = New Font("Lucida Fax", 14.25F, FontStyle.Bold)
         lbl0.ForeColor = SystemColors.ControlLight
-        lbl0.Location = New Point(111, 112)
+        lbl0.Location = New Point(131, 114)
         lbl0.Name = "lbl0"
         lbl0.Size = New Size(91, 24)
         lbl0.TabIndex = 32
@@ -186,7 +189,7 @@ Partial Class frmLogin
         lblEmpty.BackColor = Color.DimGray
         lblEmpty.BorderStyle = BorderStyle.Fixed3D
         lblEmpty.Font = New Font("Lucida Fax", 14.25F, FontStyle.Bold)
-        lblEmpty.Location = New Point(17, 112)
+        lblEmpty.Location = New Point(37, 114)
         lblEmpty.Name = "lblEmpty"
         lblEmpty.Size = New Size(90, 24)
         lblEmpty.TabIndex = 31
@@ -199,7 +202,7 @@ Partial Class frmLogin
         lbl9.BorderStyle = BorderStyle.Fixed3D
         lbl9.Font = New Font("Lucida Fax", 14.25F, FontStyle.Bold)
         lbl9.ForeColor = SystemColors.ControlLight
-        lbl9.Location = New Point(206, 78)
+        lbl9.Location = New Point(226, 80)
         lbl9.Name = "lbl9"
         lbl9.Size = New Size(91, 24)
         lbl9.TabIndex = 30
@@ -211,7 +214,7 @@ Partial Class frmLogin
         lblEmpty1.BackColor = Color.DimGray
         lblEmpty1.BorderStyle = BorderStyle.Fixed3D
         lblEmpty1.Font = New Font("Lucida Fax", 14.25F, FontStyle.Bold)
-        lblEmpty1.Location = New Point(206, 112)
+        lblEmpty1.Location = New Point(226, 114)
         lblEmpty1.Name = "lblEmpty1"
         lblEmpty1.Size = New Size(90, 24)
         lblEmpty1.TabIndex = 29
@@ -224,7 +227,7 @@ Partial Class frmLogin
         lbl8.BorderStyle = BorderStyle.Fixed3D
         lbl8.Font = New Font("Lucida Fax", 14.25F, FontStyle.Bold)
         lbl8.ForeColor = SystemColors.ControlLight
-        lbl8.Location = New Point(111, 78)
+        lbl8.Location = New Point(131, 80)
         lbl8.Name = "lbl8"
         lbl8.Size = New Size(91, 24)
         lbl8.TabIndex = 28
@@ -237,7 +240,7 @@ Partial Class frmLogin
         lbl7.BorderStyle = BorderStyle.Fixed3D
         lbl7.Font = New Font("Lucida Fax", 14.25F, FontStyle.Bold)
         lbl7.ForeColor = SystemColors.ControlLight
-        lbl7.Location = New Point(17, 78)
+        lbl7.Location = New Point(37, 80)
         lbl7.Name = "lbl7"
         lbl7.Size = New Size(91, 24)
         lbl7.TabIndex = 27
@@ -250,7 +253,7 @@ Partial Class frmLogin
         lbl2.BorderStyle = BorderStyle.Fixed3D
         lbl2.Font = New Font("Lucida Fax", 14.25F, FontStyle.Bold)
         lbl2.ForeColor = SystemColors.ControlLight
-        lbl2.Location = New Point(111, 11)
+        lbl2.Location = New Point(131, 13)
         lbl2.Name = "lbl2"
         lbl2.Size = New Size(91, 24)
         lbl2.TabIndex = 26
@@ -263,7 +266,7 @@ Partial Class frmLogin
         lbl4.BorderStyle = BorderStyle.Fixed3D
         lbl4.Font = New Font("Lucida Fax", 14.25F, FontStyle.Bold)
         lbl4.ForeColor = SystemColors.ControlLight
-        lbl4.Location = New Point(16, 43)
+        lbl4.Location = New Point(36, 45)
         lbl4.Name = "lbl4"
         lbl4.Size = New Size(91, 24)
         lbl4.TabIndex = 25
@@ -276,7 +279,7 @@ Partial Class frmLogin
         lbl5.BorderStyle = BorderStyle.Fixed3D
         lbl5.Font = New Font("Lucida Fax", 14.25F, FontStyle.Bold)
         lbl5.ForeColor = SystemColors.ControlLight
-        lbl5.Location = New Point(111, 43)
+        lbl5.Location = New Point(131, 45)
         lbl5.Name = "lbl5"
         lbl5.Size = New Size(91, 24)
         lbl5.TabIndex = 24
@@ -289,7 +292,7 @@ Partial Class frmLogin
         lbl3.BorderStyle = BorderStyle.Fixed3D
         lbl3.Font = New Font("Lucida Fax", 14.25F, FontStyle.Bold)
         lbl3.ForeColor = SystemColors.ControlLight
-        lbl3.Location = New Point(206, 11)
+        lbl3.Location = New Point(226, 13)
         lbl3.Name = "lbl3"
         lbl3.Size = New Size(91, 24)
         lbl3.TabIndex = 23
@@ -302,7 +305,7 @@ Partial Class frmLogin
         lbl6.BorderStyle = BorderStyle.Fixed3D
         lbl6.Font = New Font("Lucida Fax", 14.25F, FontStyle.Bold)
         lbl6.ForeColor = SystemColors.ControlLight
-        lbl6.Location = New Point(206, 43)
+        lbl6.Location = New Point(226, 45)
         lbl6.Name = "lbl6"
         lbl6.Size = New Size(91, 24)
         lbl6.TabIndex = 22
@@ -315,7 +318,7 @@ Partial Class frmLogin
         lbl1.BorderStyle = BorderStyle.Fixed3D
         lbl1.Font = New Font("Lucida Fax", 14.25F, FontStyle.Bold)
         lbl1.ForeColor = SystemColors.ControlLight
-        lbl1.Location = New Point(16, 11)
+        lbl1.Location = New Point(36, 13)
         lbl1.Name = "lbl1"
         lbl1.Size = New Size(91, 24)
         lbl1.TabIndex = 21
@@ -347,12 +350,23 @@ Partial Class frmLogin
         ' 
         ' Panel3
         ' 
-        Panel3.BackColor = Color.Tan
+        Panel3.BackColor = Color.LightGray
+        Panel3.Controls.Add(PictureBox3)
         Panel3.ForeColor = SystemColors.ControlLight
-        Panel3.Location = New Point(394, 0)
+        Panel3.Location = New Point(447, 0)
         Panel3.Name = "Panel3"
-        Panel3.Size = New Size(175, 392)
+        Panel3.Size = New Size(122, 392)
         Panel3.TabIndex = 9
+        ' 
+        ' PictureBox3
+        ' 
+        PictureBox3.Image = My.Resources.Resources.Bank_app_icon_removebg_preview1
+        PictureBox3.Location = New Point(11, 7)
+        PictureBox3.Name = "PictureBox3"
+        PictureBox3.Size = New Size(96, 75)
+        PictureBox3.SizeMode = PictureBoxSizeMode.StretchImage
+        PictureBox3.TabIndex = 10
+        PictureBox3.TabStop = False
         ' 
         ' frmLogin
         ' 
@@ -372,6 +386,8 @@ Partial Class frmLogin
         CType(PictureBox1, ComponentModel.ISupportInitialize).EndInit()
         Panel2.ResumeLayout(False)
         Panel2.PerformLayout()
+        Panel3.ResumeLayout(False)
+        CType(PictureBox3, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
     End Sub
 
@@ -400,4 +416,5 @@ Partial Class frmLogin
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents Panel2 As Panel
     Friend WithEvents Panel3 As Panel
+    Friend WithEvents PictureBox3 As PictureBox
 End Class

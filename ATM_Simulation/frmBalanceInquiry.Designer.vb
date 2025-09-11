@@ -115,15 +115,14 @@ Partial Class frmBalanceInquiry
         ' Button1
         ' 
         Button1.BackColor = Color.DarkOliveGreen
-        Button1.Enabled = False
         Button1.FlatStyle = FlatStyle.Flat
         Button1.Font = New Font("Century Gothic", 14.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Button1.ForeColor = SystemColors.ControlLightLight
-        Button1.Location = New Point(-5, 23)
+        Button1.Location = New Point(-3, 26)
         Button1.Name = "Button1"
-        Button1.Size = New Size(643, 37)
-        Button1.TabIndex = 9
-        Button1.Text = "  Balance Inquiry:"
+        Button1.Size = New Size(655, 37)
+        Button1.TabIndex = 12
+        Button1.Text = "   Balance Inquiry:"
         Button1.TextAlign = ContentAlignment.MiddleLeft
         Button1.UseVisualStyleBackColor = False
         ' 
