@@ -28,109 +28,142 @@ Partial Class frmMain
         btnDeposit = New Button()
         btnFundTransfer = New Button()
         btnLogout = New Button()
+        PictureBox1 = New PictureBox()
+        Panel1 = New Panel()
+        CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
+        Panel1.SuspendLayout()
         SuspendLayout()
         ' 
         ' btnBalanceInquiry
         ' 
-        btnBalanceInquiry.BackColor = Color.FromArgb(CByte(33), CByte(150), CByte(243))
+        btnBalanceInquiry.BackColor = Color.DarkOliveGreen
         btnBalanceInquiry.FlatAppearance.BorderSize = 0
         btnBalanceInquiry.FlatStyle = FlatStyle.Flat
-        btnBalanceInquiry.Font = New Font("Century Gothic", 11.25F, FontStyle.Bold)
+        btnBalanceInquiry.Font = New Font("Century Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         btnBalanceInquiry.ForeColor = Color.White
-        btnBalanceInquiry.Location = New Point(100, 80)
+        btnBalanceInquiry.Location = New Point(33, 83)
+        btnBalanceInquiry.Margin = New Padding(3, 4, 3, 4)
         btnBalanceInquiry.Name = "btnBalanceInquiry"
-        btnBalanceInquiry.Size = New Size(180, 40)
+        btnBalanceInquiry.Size = New Size(232, 51)
         btnBalanceInquiry.TabIndex = 0
         btnBalanceInquiry.Text = "Balance Inquiry"
         btnBalanceInquiry.UseVisualStyleBackColor = False
         ' 
         ' btnWithdrawal
         ' 
-        btnWithdrawal.BackColor = Color.FromArgb(CByte(33), CByte(150), CByte(243))
+        btnWithdrawal.BackColor = Color.DarkOliveGreen
         btnWithdrawal.FlatAppearance.BorderSize = 0
         btnWithdrawal.FlatStyle = FlatStyle.Flat
-        btnWithdrawal.Font = New Font("Century Gothic", 11.25F, FontStyle.Bold)
+        btnWithdrawal.Font = New Font("Century Gothic", 12F, FontStyle.Bold)
         btnWithdrawal.ForeColor = Color.White
-        btnWithdrawal.Location = New Point(100, 140)
+        btnWithdrawal.Location = New Point(33, 159)
+        btnWithdrawal.Margin = New Padding(3, 4, 3, 4)
         btnWithdrawal.Name = "btnWithdrawal"
-        btnWithdrawal.Size = New Size(180, 40)
+        btnWithdrawal.Size = New Size(232, 51)
         btnWithdrawal.TabIndex = 1
         btnWithdrawal.Text = "Withdrawal"
         btnWithdrawal.UseVisualStyleBackColor = False
         ' 
         ' btnMiniStatement
         ' 
-        btnMiniStatement.BackColor = Color.FromArgb(CByte(33), CByte(150), CByte(243))
+        btnMiniStatement.BackColor = Color.DarkOliveGreen
         btnMiniStatement.FlatAppearance.BorderSize = 0
         btnMiniStatement.FlatStyle = FlatStyle.Flat
-        btnMiniStatement.Font = New Font("Century Gothic", 11.25F, FontStyle.Bold)
+        btnMiniStatement.Font = New Font("Century Gothic", 12F, FontStyle.Bold)
         btnMiniStatement.ForeColor = Color.White
-        btnMiniStatement.Location = New Point(100, 200)
+        btnMiniStatement.Location = New Point(33, 235)
+        btnMiniStatement.Margin = New Padding(3, 4, 3, 4)
         btnMiniStatement.Name = "btnMiniStatement"
-        btnMiniStatement.Size = New Size(180, 40)
+        btnMiniStatement.Size = New Size(232, 51)
         btnMiniStatement.TabIndex = 2
         btnMiniStatement.Text = "Mini Statement"
         btnMiniStatement.UseVisualStyleBackColor = False
         ' 
         ' btnDeposit
         ' 
-        btnDeposit.BackColor = Color.FromArgb(CByte(33), CByte(150), CByte(243))
+        btnDeposit.BackColor = Color.DarkOliveGreen
         btnDeposit.FlatAppearance.BorderSize = 0
         btnDeposit.FlatStyle = FlatStyle.Flat
-        btnDeposit.Font = New Font("Century Gothic", 11.25F, FontStyle.Bold)
+        btnDeposit.Font = New Font("Century Gothic", 12F, FontStyle.Bold)
         btnDeposit.ForeColor = Color.White
-        btnDeposit.Location = New Point(320, 80)
+        btnDeposit.Location = New Point(317, 83)
+        btnDeposit.Margin = New Padding(3, 4, 3, 4)
         btnDeposit.Name = "btnDeposit"
-        btnDeposit.Size = New Size(180, 40)
+        btnDeposit.Size = New Size(232, 51)
         btnDeposit.TabIndex = 3
         btnDeposit.Text = "Deposit"
         btnDeposit.UseVisualStyleBackColor = False
         ' 
         ' btnFundTransfer
         ' 
-        btnFundTransfer.BackColor = Color.FromArgb(CByte(33), CByte(150), CByte(243))
+        btnFundTransfer.BackColor = Color.DarkOliveGreen
         btnFundTransfer.FlatAppearance.BorderSize = 0
         btnFundTransfer.FlatStyle = FlatStyle.Flat
-        btnFundTransfer.Font = New Font("Century Gothic", 11.25F, FontStyle.Bold)
+        btnFundTransfer.Font = New Font("Century Gothic", 12F, FontStyle.Bold)
         btnFundTransfer.ForeColor = Color.White
-        btnFundTransfer.Location = New Point(320, 140)
+        btnFundTransfer.Location = New Point(317, 159)
+        btnFundTransfer.Margin = New Padding(3, 4, 3, 4)
         btnFundTransfer.Name = "btnFundTransfer"
-        btnFundTransfer.Size = New Size(180, 40)
+        btnFundTransfer.Size = New Size(232, 51)
         btnFundTransfer.TabIndex = 4
         btnFundTransfer.Text = "Fund Transfer"
         btnFundTransfer.UseVisualStyleBackColor = False
         ' 
         ' btnLogout
         ' 
-        btnLogout.BackColor = Color.FromArgb(CByte(244), CByte(67), CByte(54))
+        btnLogout.BackColor = Color.Brown
         btnLogout.FlatAppearance.BorderSize = 0
         btnLogout.FlatStyle = FlatStyle.Flat
-        btnLogout.Font = New Font("Century Gothic", 11.25F, FontStyle.Bold)
+        btnLogout.Font = New Font("Century Gothic", 12F, FontStyle.Bold)
         btnLogout.ForeColor = Color.White
-        btnLogout.Location = New Point(320, 200)
+        btnLogout.Location = New Point(317, 235)
+        btnLogout.Margin = New Padding(3, 4, 3, 4)
         btnLogout.Name = "btnLogout"
-        btnLogout.Size = New Size(180, 40)
+        btnLogout.Size = New Size(232, 51)
         btnLogout.TabIndex = 5
         btnLogout.Text = "Logout"
         btnLogout.UseVisualStyleBackColor = False
         ' 
+        ' PictureBox1
+        ' 
+        PictureBox1.Image = My.Resources.Resources.ATM_UI_UX___南街_西洋菜
+        PictureBox1.Location = New Point(0, -3)
+        PictureBox1.Name = "PictureBox1"
+        PictureBox1.Size = New Size(748, 482)
+        PictureBox1.SizeMode = PictureBoxSizeMode.StretchImage
+        PictureBox1.TabIndex = 6
+        PictureBox1.TabStop = False
+        ' 
+        ' Panel1
+        ' 
+        Panel1.Controls.Add(btnLogout)
+        Panel1.Controls.Add(btnBalanceInquiry)
+        Panel1.Controls.Add(btnWithdrawal)
+        Panel1.Controls.Add(btnFundTransfer)
+        Panel1.Controls.Add(btnMiniStatement)
+        Panel1.Controls.Add(btnDeposit)
+        Panel1.Location = New Point(82, 54)
+        Panel1.Name = "Panel1"
+        Panel1.Size = New Size(583, 367)
+        Panel1.TabIndex = 7
+        ' 
         ' frmMain
         ' 
-        AutoScaleDimensions = New SizeF(7F, 15F)
+        AutoScaleDimensions = New SizeF(9F, 19F)
         AutoScaleMode = AutoScaleMode.Font
-        BackColor = Color.WhiteSmoke
-        ClientSize = New Size(600, 350)
-        Controls.Add(btnLogout)
-        Controls.Add(btnFundTransfer)
-        Controls.Add(btnDeposit)
-        Controls.Add(btnMiniStatement)
-        Controls.Add(btnWithdrawal)
-        Controls.Add(btnBalanceInquiry)
+        BackColor = Color.AntiqueWhite
+        ClientSize = New Size(743, 479)
+        Controls.Add(Panel1)
+        Controls.Add(PictureBox1)
+        Font = New Font("Century Gothic", 12F, FontStyle.Bold)
         FormBorderStyle = FormBorderStyle.FixedSingle
+        Margin = New Padding(3, 4, 3, 4)
         MaximizeBox = False
         Name = "frmMain"
         StartPosition = FormStartPosition.CenterScreen
         Text = "Banking Operations"
+        CType(PictureBox1, ComponentModel.ISupportInitialize).EndInit()
+        Panel1.ResumeLayout(False)
         ResumeLayout(False)
     End Sub
 
@@ -140,5 +173,7 @@ Partial Class frmMain
     Friend WithEvents btnDeposit As Button
     Friend WithEvents btnFundTransfer As Button
     Friend WithEvents btnLogout As Button
+    Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents Panel1 As Panel
 
 End Class
