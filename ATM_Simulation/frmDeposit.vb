@@ -116,20 +116,16 @@ Public Class frmDeposit
 
     End Sub
 
-    Private Sub lblDel_Click(sender As Object, e As EventArgs)
+    Private Sub lblCancel_Click(sender As Object, e As EventArgs)
+        frmMain.Show
+        Hide
+    End Sub
+
+    Private Sub btnDel_Click(sender As Object, e As EventArgs) Handles btnDel.Click
         Dim pos As String = txtDepositAmount.Text.Length
         If pos > 0 Then
             txtDepositAmount.Text = txtDepositAmount.Text.Remove(pos - 1, 1)
             txtDepositAmount.SelectionStart = txtDepositAmount.Text.Length
         End If
-    End Sub
-
-    Private Sub lblEnter_Click_1(sender As Object, e As EventArgs) Handles lblEnter.Click
-        Deposit()
-    End Sub
-
-    Private Sub lblCancel_Click(sender As Object, e As EventArgs) Handles lblCancel.Click
-        frmMain.Show()
-        Hide()
     End Sub
 End Class

@@ -121,4 +121,12 @@ Public Class frmWithdrawal
         txtAmount.Clear()
     End Sub
 
+    Private Sub txtAmount_TextChanged(sender As Object, e As EventArgs) Handles txtAmount.TextChanged
+        Dim raw As String = txtAmount.Text.Replace(",", "")
+        Dim value As Double
+        If Double.TryParse(raw, value) Then
+            txtAmount.Text = String.Format("{0:N0}", value)
+            txtAmount.SelectionStart = txtAmount.Text.Length
+        End If
+    End Sub
 End Class
