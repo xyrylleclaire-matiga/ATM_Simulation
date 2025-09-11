@@ -1,6 +1,7 @@
 ﻿Public Class frmMain
     Private Sub btnLogout_Click(sender As Object, e As EventArgs) Handles btnLogout.Click
         frmLogin.Show()
+        Me.Close()
 
     End Sub
 

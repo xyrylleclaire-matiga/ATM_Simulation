@@ -2,18 +2,9 @@
 
 Public Class frmBalanceInquiry
 
-    ' Make sure you have these variables declared somewhere in your project:
-    ' Dim con As MySqlConnection
-    ' Dim cmd As MySqlCommand
-    ' Dim dr As MySqlDataReader
-    ' Dim sql As String
-    ' Dim LoggedInAccNum As String  ' Your current logged-in account number
-
     Private Sub frmBalanceInquiry_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        ' Load balance immediately when form loads
         LoadBalance()
 
-        ' Start timer for auto refresh (Timer1.Enabled is True by default in Designer)
         Timer1.Start()
     End Sub
 
@@ -21,11 +12,10 @@ Public Class frmBalanceInquiry
         LoadBalance()
     End Sub
 
-    Private Sub LoadBalance()
+    Public Sub LoadBalance()
         Try
-            ' Open connection if closed
             If con Is Nothing Then
-                connection() ' Your method to initialize 'con'
+                connection()
             ElseIf con.State = ConnectionState.Closed Then
                 con.Open()
             End If
@@ -54,11 +44,11 @@ Public Class frmBalanceInquiry
     End Sub
 
     Private Sub btnRefresh_Click(sender As Object, e As EventArgs) Handles btnRefresh.Click
-        LoadBalance() ' Manual refresh on button click
+        LoadBalance()
     End Sub
 
     Private Sub btnCancel_Click(sender As Object, e As EventArgs) Handles btnCancel.Click
-        Timer1.Stop() ' Stop timer when leaving this form
+        Timer1.Stop()
         frmMain.Show()
         Me.Hide()
     End Sub

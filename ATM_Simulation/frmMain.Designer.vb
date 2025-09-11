@@ -35,7 +35,7 @@ Partial Class frmMain
         btnBalanceInquiry.BackColor = Color.FromArgb(CByte(33), CByte(150), CByte(243))
         btnBalanceInquiry.FlatAppearance.BorderSize = 0
         btnBalanceInquiry.FlatStyle = FlatStyle.Flat
-        btnBalanceInquiry.Font = New Font("Segoe UI", 10F)
+        btnBalanceInquiry.Font = New Font("Century Gothic", 11.25F, FontStyle.Bold)
         btnBalanceInquiry.ForeColor = Color.White
         btnBalanceInquiry.Location = New Point(100, 80)
         btnBalanceInquiry.Name = "btnBalanceInquiry"
@@ -49,7 +49,7 @@ Partial Class frmMain
         btnWithdrawal.BackColor = Color.FromArgb(CByte(33), CByte(150), CByte(243))
         btnWithdrawal.FlatAppearance.BorderSize = 0
         btnWithdrawal.FlatStyle = FlatStyle.Flat
-        btnWithdrawal.Font = New Font("Segoe UI", 10F)
+        btnWithdrawal.Font = New Font("Century Gothic", 11.25F, FontStyle.Bold)
         btnWithdrawal.ForeColor = Color.White
         btnWithdrawal.Location = New Point(100, 140)
         btnWithdrawal.Name = "btnWithdrawal"
@@ -63,7 +63,7 @@ Partial Class frmMain
         btnMiniStatement.BackColor = Color.FromArgb(CByte(33), CByte(150), CByte(243))
         btnMiniStatement.FlatAppearance.BorderSize = 0
         btnMiniStatement.FlatStyle = FlatStyle.Flat
-        btnMiniStatement.Font = New Font("Segoe UI", 10F)
+        btnMiniStatement.Font = New Font("Century Gothic", 11.25F, FontStyle.Bold)
         btnMiniStatement.ForeColor = Color.White
         btnMiniStatement.Location = New Point(100, 200)
         btnMiniStatement.Name = "btnMiniStatement"
@@ -77,7 +77,7 @@ Partial Class frmMain
         btnDeposit.BackColor = Color.FromArgb(CByte(33), CByte(150), CByte(243))
         btnDeposit.FlatAppearance.BorderSize = 0
         btnDeposit.FlatStyle = FlatStyle.Flat
-        btnDeposit.Font = New Font("Segoe UI", 10F)
+        btnDeposit.Font = New Font("Century Gothic", 11.25F, FontStyle.Bold)
         btnDeposit.ForeColor = Color.White
         btnDeposit.Location = New Point(320, 80)
         btnDeposit.Name = "btnDeposit"
@@ -91,7 +91,7 @@ Partial Class frmMain
         btnFundTransfer.BackColor = Color.FromArgb(CByte(33), CByte(150), CByte(243))
         btnFundTransfer.FlatAppearance.BorderSize = 0
         btnFundTransfer.FlatStyle = FlatStyle.Flat
-        btnFundTransfer.Font = New Font("Segoe UI", 10F)
+        btnFundTransfer.Font = New Font("Century Gothic", 11.25F, FontStyle.Bold)
         btnFundTransfer.ForeColor = Color.White
         btnFundTransfer.Location = New Point(320, 140)
         btnFundTransfer.Name = "btnFundTransfer"
@@ -105,7 +105,7 @@ Partial Class frmMain
         btnLogout.BackColor = Color.FromArgb(CByte(244), CByte(67), CByte(54))
         btnLogout.FlatAppearance.BorderSize = 0
         btnLogout.FlatStyle = FlatStyle.Flat
-        btnLogout.Font = New Font("Segoe UI", 10F)
+        btnLogout.Font = New Font("Century Gothic", 11.25F, FontStyle.Bold)
         btnLogout.ForeColor = Color.White
         btnLogout.Location = New Point(320, 200)
         btnLogout.Name = "btnLogout"

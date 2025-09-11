@@ -1,28 +1,33 @@
-﻿Imports MySql.Data.MySqlClient
+﻿Imports System.Transactions
+Imports MySql.Data.MySqlClient
 
 Public Class frmDeposit
 
-    Private Sub btnDeposit_Click(sender As Object, e As EventArgs) Handles btnDeposit.Click
+    Private Sub Deposit()
         Dim depositAmount As Double
 
-        ' Validate input
         If Not Double.TryParse(txtDepositAmount.Text.Trim(), depositAmount) OrElse depositAmount <= 0 Then
             MessageBox.Show("Please enter a valid deposit amount.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             txtDepositAmount.Focus()
             Return
         End If
 
+        If depositAmount > 10000 Then
+            MessageBox.Show("Deposit amount exceeds the maximum limit of 10,000.", "Limit Exceeded", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            txtDepositAmount.Focus()
+            txtDepositAmount.Clear()
+            Return
+        End If
+
+
         Try
-            ' Open DB connection
             Call connection()
 
-            ' Start transaction for safety (optional)
             Dim transaction = con.BeginTransaction()
             cmd = New MySqlCommand()
             cmd.Connection = con
             cmd.Transaction = transaction
 
-            ' Update balance (add the deposit amount)
             sql = "UPDATE accountbalance SET BalanceAmount = BalanceAmount + @deposit WHERE AccountNumber = @acc"
             cmd.CommandText = sql
             cmd.Parameters.Clear()
@@ -31,7 +36,7 @@ Public Class frmDeposit
 
             Dim rowsAffected As Integer = cmd.ExecuteNonQuery()
 
-            If rowsAffected > 0 Then
+            If rowsAffected > 0 And rowsAffected <= 10000 Then
                 transaction.Commit()
                 MessageBox.Show("Deposit successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 txtDepositAmount.Clear()
@@ -47,13 +52,84 @@ Public Class frmDeposit
         End Try
     End Sub
 
+    Private Sub btnDeposit_Click(sender As Object, e As EventArgs) Handles btnDeposit.Click
+        Deposit()
+    End Sub
+
     Private Sub btnCancel_Click(sender As Object, e As EventArgs) Handles btnCancel.Click
-        ' Navigate back to main form or previous form
         frmMain.Show()
         Me.Hide()
     End Sub
 
-    Private Sub frmDeposit_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub lbl1_Click(sender As Object, e As EventArgs) Handles lbl1.Click
+        txtDepositAmount.AppendText("1")
+    End Sub
 
+    Private Sub lbl2_Click(sender As Object, e As EventArgs) Handles lbl2.Click
+        txtDepositAmount.AppendText("2")
+    End Sub
+
+    Private Sub lbl3_Click(sender As Object, e As EventArgs) Handles lbl3.Click
+        txtDepositAmount.AppendText("3")
+    End Sub
+
+    Private Sub lbl4_Click(sender As Object, e As EventArgs) Handles lbl4.Click
+        txtDepositAmount.AppendText("4")
+    End Sub
+
+    Private Sub lbl5_Click(sender As Object, e As EventArgs) Handles lbl5.Click
+        txtDepositAmount.AppendText("5")
+    End Sub
+
+    Private Sub lbl6_Click(sender As Object, e As EventArgs) Handles lbl6.Click
+        txtDepositAmount.AppendText("6")
+    End Sub
+
+    Private Sub lbl7_Click(sender As Object, e As EventArgs) Handles lbl7.Click
+        txtDepositAmount.AppendText("7")
+    End Sub
+
+    Private Sub lbl8_Click(sender As Object, e As EventArgs) Handles lbl8.Click
+        txtDepositAmount.AppendText("8")
+    End Sub
+
+    Private Sub lbl9_Click(sender As Object, e As EventArgs) Handles lbl9.Click
+        txtDepositAmount.AppendText("9")
+    End Sub
+
+    Private Sub lbl0_Click(sender As Object, e As EventArgs) Handles lbl0.Click
+        txtDepositAmount.AppendText("0")
+    End Sub
+
+
+    Private Sub lblClear_Click(sender As Object, e As EventArgs) Handles lblClear.Click
+        txtDepositAmount.Clear()
+    End Sub
+
+    Private Sub txtDepositAmount_TextChanged(sender As Object, e As EventArgs) Handles txtDepositAmount.TextChanged
+        Dim raw As String = txtDepositAmount.Text.Replace(",", "")
+        Dim value As Double
+        If Double.TryParse(raw, value) Then
+            txtDepositAmount.Text = String.Format("{0:N0}", value)
+            txtDepositAmount.SelectionStart = txtDepositAmount.Text.Length
+        End If
+
+    End Sub
+
+    Private Sub lblDel_Click(sender As Object, e As EventArgs)
+        Dim pos As String = txtDepositAmount.Text.Length
+        If pos > 0 Then
+            txtDepositAmount.Text = txtDepositAmount.Text.Remove(pos - 1, 1)
+            txtDepositAmount.SelectionStart = txtDepositAmount.Text.Length
+        End If
+    End Sub
+
+    Private Sub lblEnter_Click_1(sender As Object, e As EventArgs) Handles lblEnter.Click
+        Deposit()
+    End Sub
+
+    Private Sub lblCancel_Click(sender As Object, e As EventArgs) Handles lblCancel.Click
+        frmMain.Show()
+        Hide()
     End Sub
 End Class
