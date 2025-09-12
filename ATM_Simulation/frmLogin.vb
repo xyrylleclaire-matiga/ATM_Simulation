@@ -6,7 +6,7 @@ Public Class frmLogin
         Try
             dbConnection.connection()
 
-            Dim query As String = "SELECT * FROM userinfo WHERE AccountNumber = @accNum AND PIN = @pin"
+            Dim query As String = "SELECT * FROM tbluserinfo WHERE AccountNumber = @accNum AND PIN = @pin"
             dbConnection.cmd = New MySqlCommand(query, dbConnection.con)
             dbConnection.cmd.Parameters.AddWithValue("@accNum", txtAccNum.Text.Trim())
             dbConnection.cmd.Parameters.AddWithValue("@pin", txtPIN.Text.Trim())
@@ -152,4 +152,7 @@ Public Class frmLogin
         End If
     End Sub
 
+    Private Sub frmLogin_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    End Sub
 End Class

@@ -5,12 +5,15 @@ Public Class frmMain
     Private Sub userDetails()
         Try
             dbConnection.connection()
-            Dim query As String = "SELECT * FROM userinfo WHERE AccountNumber = @accNum"
+            Dim query As String = "SELECT * FROM tbluserinfo WHERE AccountNumber = @accNum"
             dbConnection.cmd = New MySqlCommand(query, dbConnection.con)
             dbConnection.cmd.Parameters.AddWithValue("@accNum", dbConnection.LoggedInAccNum)
             dbConnection.dr = dbConnection.cmd.ExecuteReader()
             If dbConnection.dr.Read() Then
-                lblUser.Text = dbConnection.dr("FirstName").ToString()
+                lblUser.Text = dbConnection.dr("LastName").ToString().ToUpper() & ", " &
+                dbConnection.dr("FirstName").ToString().ToUpper() & " " &
+                dbConnection.dr("MiddleName").ToString().ToUpper()
+
                 lblAccountNumberDisplay.Text = dbConnection.dr("AccountNumber").ToString()
             End If
             dbConnection.dr.Close()
@@ -53,4 +56,9 @@ Public Class frmMain
     Private Sub frmMain_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         userDetails()
     End Sub
+
+    Private Sub btnFundTransfer_Click(sender As Object, e As EventArgs) Handles btnFundTransfer.Click
+        frmFundTransfer.Show()
+    End Sub
+
 End Class

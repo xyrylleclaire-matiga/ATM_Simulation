@@ -26,8 +26,8 @@ Partial Class frmMiniStatement
         lstMiniStatement = New ListBox()
         PictureBox1 = New PictureBox()
         Panel1 = New Panel()
-        btnCancel = New Button()
         Button1 = New Button()
+        Button2 = New Button()
         CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
         Panel1.SuspendLayout()
         SuspendLayout()
@@ -56,9 +56,9 @@ Partial Class frmMiniStatement
         ' PictureBox1
         ' 
         PictureBox1.Image = My.Resources.Resources.ATM_UI_UX___南街_西洋菜
-        PictureBox1.Location = New Point(-6, -5)
+        PictureBox1.Location = New Point(-3, -3)
         PictureBox1.Name = "PictureBox1"
-        PictureBox1.Size = New Size(818, 463)
+        PictureBox1.Size = New Size(821, 529)
         PictureBox1.SizeMode = PictureBoxSizeMode.StretchImage
         PictureBox1.TabIndex = 2
         PictureBox1.TabStop = False
@@ -66,24 +66,12 @@ Partial Class frmMiniStatement
         ' Panel1
         ' 
         Panel1.BackColor = Color.FromArgb(CByte(224), CByte(224), CByte(224))
+        Panel1.Controls.Add(Button2)
         Panel1.Controls.Add(Button1)
-        Panel1.Controls.Add(btnCancel)
-        Panel1.Location = New Point(84, 48)
+        Panel1.Location = New Point(87, 60)
         Panel1.Name = "Panel1"
-        Panel1.Size = New Size(636, 361)
+        Panel1.Size = New Size(643, 406)
         Panel1.TabIndex = 3
-        ' 
-        ' btnCancel
-        ' 
-        btnCancel.BackColor = Color.DarkOliveGreen
-        btnCancel.Font = New Font("Century Gothic", 12.75F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        btnCancel.ForeColor = SystemColors.ControlLight
-        btnCancel.Location = New Point(474, 311)
-        btnCancel.Name = "btnCancel"
-        btnCancel.Size = New Size(150, 47)
-        btnCancel.TabIndex = 0
-        btnCancel.Text = "Cancel"
-        btnCancel.UseVisualStyleBackColor = False
         ' 
         ' Button1
         ' 
@@ -99,12 +87,26 @@ Partial Class frmMiniStatement
         Button1.TextAlign = ContentAlignment.MiddleLeft
         Button1.UseVisualStyleBackColor = False
         ' 
+        ' Button2
+        ' 
+        Button2.BackColor = Color.FromArgb(CByte(108), CByte(117), CByte(125))
+        Button2.FlatAppearance.BorderSize = 0
+        Button2.FlatStyle = FlatStyle.Flat
+        Button2.Font = New Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        Button2.ForeColor = Color.White
+        Button2.Location = New Point(502, 363)
+        Button2.Name = "Button2"
+        Button2.Size = New Size(131, 35)
+        Button2.TabIndex = 44
+        Button2.Text = "Cancel"
+        Button2.UseVisualStyleBackColor = False
+        ' 
         ' frmMiniStatement
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.FromArgb(CByte(248), CByte(249), CByte(250))
-        ClientSize = New Size(800, 450)
+        ClientSize = New Size(815, 523)
         Controls.Add(Panel1)
         Controls.Add(PictureBox1)
         Controls.Add(lstMiniStatement)
@@ -125,6 +127,6 @@ Partial Class frmMiniStatement
     Friend WithEvents lstMiniStatement As ListBox
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents Panel1 As Panel
-    Friend WithEvents btnCancel As Button
     Friend WithEvents Button1 As Button
+    Friend WithEvents Button2 As Button
 End Class

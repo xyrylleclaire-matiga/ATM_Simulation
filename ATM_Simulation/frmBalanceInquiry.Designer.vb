@@ -30,7 +30,7 @@ Partial Class frmBalanceInquiry
         Timer1 = New Timer(components)
         PictureBox1 = New PictureBox()
         Panel1 = New Panel()
-        Button1 = New Button()
+        Button2 = New Button()
         CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
         Panel1.SuspendLayout()
         SuspendLayout()
@@ -40,7 +40,7 @@ Partial Class frmBalanceInquiry
         Label1.AutoSize = True
         Label1.Font = New Font("Segoe UI Semibold", 18F, FontStyle.Bold)
         Label1.ForeColor = Color.FromArgb(CByte(33), CByte(37), CByte(41))
-        Label1.Location = New Point(128, 120)
+        Label1.Location = New Point(124, 153)
         Label1.Name = "Label1"
         Label1.Size = New Size(201, 32)
         Label1.TabIndex = 0
@@ -51,7 +51,7 @@ Partial Class frmBalanceInquiry
         lblBalanceAmount.AutoSize = True
         lblBalanceAmount.Font = New Font("Segoe UI", 24F, FontStyle.Bold)
         lblBalanceAmount.ForeColor = Color.DarkOliveGreen
-        lblBalanceAmount.Location = New Point(333, 115)
+        lblBalanceAmount.Location = New Point(329, 148)
         lblBalanceAmount.Name = "lblBalanceAmount"
         lblBalanceAmount.Size = New Size(85, 45)
         lblBalanceAmount.TabIndex = 1
@@ -64,7 +64,7 @@ Partial Class frmBalanceInquiry
         btnCancel.FlatStyle = FlatStyle.Flat
         btnCancel.Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold)
         btnCancel.ForeColor = Color.White
-        btnCancel.Location = New Point(335, 188)
+        btnCancel.Location = New Point(331, 221)
         btnCancel.Name = "btnCancel"
         btnCancel.Size = New Size(131, 35)
         btnCancel.TabIndex = 5
@@ -78,7 +78,7 @@ Partial Class frmBalanceInquiry
         btnRefresh.FlatStyle = FlatStyle.Flat
         btnRefresh.Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold)
         btnRefresh.ForeColor = Color.White
-        btnRefresh.Location = New Point(195, 188)
+        btnRefresh.Location = New Point(191, 221)
         btnRefresh.Name = "btnRefresh"
         btnRefresh.Size = New Size(134, 35)
         btnRefresh.TabIndex = 6
@@ -95,43 +95,43 @@ Partial Class frmBalanceInquiry
         PictureBox1.Image = My.Resources.Resources.ATM_UI_UX___南街_西洋菜
         PictureBox1.Location = New Point(0, 0)
         PictureBox1.Name = "PictureBox1"
-        PictureBox1.Size = New Size(802, 402)
+        PictureBox1.Size = New Size(770, 482)
         PictureBox1.SizeMode = PictureBoxSizeMode.StretchImage
         PictureBox1.TabIndex = 7
         PictureBox1.TabStop = False
         ' 
         ' Panel1
         ' 
-        Panel1.Controls.Add(Button1)
+        Panel1.Controls.Add(Button2)
         Panel1.Controls.Add(Label1)
         Panel1.Controls.Add(lblBalanceAmount)
         Panel1.Controls.Add(btnRefresh)
         Panel1.Controls.Add(btnCancel)
-        Panel1.Location = New Point(89, 48)
+        Panel1.Location = New Point(81, 48)
         Panel1.Name = "Panel1"
-        Panel1.Size = New Size(623, 308)
+        Panel1.Size = New Size(631, 383)
         Panel1.TabIndex = 8
         ' 
-        ' Button1
+        ' Button2
         ' 
-        Button1.BackColor = Color.DarkOliveGreen
-        Button1.FlatStyle = FlatStyle.Flat
-        Button1.Font = New Font("Century Gothic", 14.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        Button1.ForeColor = SystemColors.ControlLightLight
-        Button1.Location = New Point(-3, 26)
-        Button1.Name = "Button1"
-        Button1.Size = New Size(655, 37)
-        Button1.TabIndex = 12
-        Button1.Text = "   Balance Inquiry:"
-        Button1.TextAlign = ContentAlignment.MiddleLeft
-        Button1.UseVisualStyleBackColor = False
+        Button2.BackColor = Color.DarkOliveGreen
+        Button2.FlatStyle = FlatStyle.Flat
+        Button2.Font = New Font("Century Gothic", 18F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Button2.ForeColor = SystemColors.ControlLightLight
+        Button2.Location = New Point(-1, 18)
+        Button2.Name = "Button2"
+        Button2.Size = New Size(642, 51)
+        Button2.TabIndex = 42
+        Button2.Text = "   Balance Inquiry"
+        Button2.TextAlign = ContentAlignment.MiddleLeft
+        Button2.UseVisualStyleBackColor = False
         ' 
         ' frmBalanceInquiry
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.White
-        ClientSize = New Size(800, 400)
+        ClientSize = New Size(767, 480)
         Controls.Add(Panel1)
         Controls.Add(PictureBox1)
         FormBorderStyle = FormBorderStyle.FixedSingle
@@ -152,5 +152,5 @@ Partial Class frmBalanceInquiry
     Friend WithEvents Timer1 As Timer
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents Panel1 As Panel
-    Friend WithEvents Button1 As Button
+    Friend WithEvents Button2 As Button
 End Class

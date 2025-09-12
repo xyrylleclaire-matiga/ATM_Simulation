@@ -20,7 +20,7 @@ Public Class frmBalanceInquiry
                 con.Open()
             End If
 
-            sql = "SELECT BalanceAmount FROM accountbalance WHERE AccountNumber = @acc"
+            sql = "SELECT BalanceAmount FROM tblaccountbalance WHERE AccountNumber = @acc"
             cmd = New MySqlCommand(sql, con)
             cmd.Parameters.Clear()
             cmd.Parameters.AddWithValue("@acc", LoggedInAccNum)

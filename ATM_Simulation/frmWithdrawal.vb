@@ -23,7 +23,7 @@ Public Class frmWithdrawal
         Try
             Call connection()
 
-            Dim cmdCheckBalance As New MySqlCommand("SELECT BalanceAmount FROM accountbalance WHERE AccountNumber = @acc", con)
+            Dim cmdCheckBalance As New MySqlCommand("SELECT BalanceAmount FROM tblaccountbalance WHERE AccountNumber = @acc", con)
             cmdCheckBalance.Parameters.AddWithValue("@acc", LoggedInAccNum)
             Dim currentBalance As Double = Convert.ToDouble(cmdCheckBalance.ExecuteScalar())
             If withdrawAmount > currentBalance Then
@@ -38,7 +38,7 @@ Public Class frmWithdrawal
             cmd.Connection = con
             cmd.Transaction = transaction
 
-            sql = "UPDATE accountbalance SET BalanceAmount = BalanceAmount - @withdraw WHERE AccountNumber = @acc"
+            sql = "UPDATE tblaccountbalance SET BalanceAmount = BalanceAmount - @withdraw WHERE AccountNumber = @acc"
             cmd.CommandText = sql
             cmd.Parameters.Clear()
             cmd.Parameters.AddWithValue("@withdraw", withdrawAmount)
@@ -112,9 +112,9 @@ Public Class frmWithdrawal
         txtAmount.AppendText("0")
     End Sub
 
-    Private Sub lblCancel_Click(sender As Object, e As EventArgs) Handles lblCancel.Click
-        Me.Hide()
-        frmMain.Show()
+    Private Sub lblCancel_Click(sender As Object, e As EventArgs)
+        Hide
+        frmMain.Show
     End Sub
 
     Private Sub lblClear_Click(sender As Object, e As EventArgs) Handles lblClear.Click
@@ -126,6 +126,14 @@ Public Class frmWithdrawal
         Dim value As Double
         If Double.TryParse(raw, value) Then
             txtAmount.Text = String.Format("{0:N0}", value)
+            txtAmount.SelectionStart = txtAmount.Text.Length
+        End If
+    End Sub
+
+    Private Sub btnDel_Click(sender As Object, e As EventArgs) Handles btnDel.Click
+        Dim pos As String = txtAmount.Text.Length
+        If pos > 0 Then
+            txtAmount.Text = txtAmount.Text.Remove(pos - 1, 1)
             txtAmount.SelectionStart = txtAmount.Text.Length
         End If
     End Sub

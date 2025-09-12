@@ -9,6 +9,7 @@ Public Class frmDeposit
         If Not Double.TryParse(txtDepositAmount.Text.Trim(), depositAmount) OrElse depositAmount <= 0 Then
             MessageBox.Show("Please enter a valid deposit amount.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             txtDepositAmount.Focus()
+            txtDepositAmount.Clear()
             Return
         End If
 
@@ -28,7 +29,7 @@ Public Class frmDeposit
             cmd.Connection = con
             cmd.Transaction = transaction
 
-            sql = "UPDATE accountbalance SET BalanceAmount = BalanceAmount + @deposit WHERE AccountNumber = @acc"
+            sql = "UPDATE tblaccountbalance SET BalanceAmount = BalanceAmount + @deposit WHERE AccountNumber = @acc"
             cmd.CommandText = sql
             cmd.Parameters.Clear()
             cmd.Parameters.AddWithValue("@deposit", depositAmount)
@@ -43,17 +44,20 @@ Public Class frmDeposit
             Else
                 transaction.Rollback()
                 MessageBox.Show("Deposit failed. Account not found.", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error)
+
+                txtDepositAmount.Clear()
             End If
 
         Catch ex As Exception
             MessageBox.Show("Error during deposit: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            txtDepositAmount.Clear()
         Finally
             con.Close()
         End Try
     End Sub
 
     Private Sub btnDeposit_Click(sender As Object, e As EventArgs) Handles btnDeposit.Click
-        Deposit()
+        Deposit
     End Sub
 
     Private Sub btnCancel_Click(sender As Object, e As EventArgs) Handles btnCancel.Click
@@ -102,8 +106,8 @@ Public Class frmDeposit
     End Sub
 
 
-    Private Sub lblClear_Click(sender As Object, e As EventArgs) Handles lblClear.Click
-        txtDepositAmount.Clear()
+    Private Sub lblClear_Click(sender As Object, e As EventArgs)
+        txtDepositAmount.Clear
     End Sub
 
     Private Sub txtDepositAmount_TextChanged(sender As Object, e As EventArgs) Handles txtDepositAmount.TextChanged
@@ -116,10 +120,6 @@ Public Class frmDeposit
 
     End Sub
 
-    Private Sub lblCancel_Click(sender As Object, e As EventArgs)
-        frmMain.Show
-        Hide
-    End Sub
 
     Private Sub btnDel_Click(sender As Object, e As EventArgs) Handles btnDel.Click
         Dim pos As String = txtDepositAmount.Text.Length
@@ -128,4 +128,10 @@ Public Class frmDeposit
             txtDepositAmount.SelectionStart = txtDepositAmount.Text.Length
         End If
     End Sub
+
+    Private Sub lblClear_Click_1(sender As Object, e As EventArgs) Handles lblClear.Click
+        frmMain.Show()
+        Me.Hide()
+    End Sub
+
 End Class
