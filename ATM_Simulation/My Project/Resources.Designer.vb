@@ -96,6 +96,16 @@ Namespace My.Resources
         '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
+        Friend ReadOnly Property Atm_stock_photo__Image_of_chip__automatic__multi__function___9334148() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("Atm stock photo_ Image of chip, automatic, multi, function - 9334148", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
         Friend ReadOnly Property ATM_UI_UX___南街_西洋菜() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("ATM UI_UX - 南街 西洋菜", resourceCulture)
@@ -209,6 +219,16 @@ Namespace My.Resources
         Friend ReadOnly Property green_icon_app_removebg_preview() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("green_icon_app-removebg-preview", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property istockphoto_118336791_612x612() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("istockphoto-118336791-612x612", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property

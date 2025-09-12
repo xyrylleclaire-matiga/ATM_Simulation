@@ -116,9 +116,6 @@ Public Class frmLogin
         End If
     End Sub
 
-    Private Sub lblCancel_Click(sender As Object, e As EventArgs) Handles lblCancel.Click
-        Me.Close()
-    End Sub
 
     Private Sub lbl0_Click(sender As Object, e As EventArgs) Handles lbl0.Click
         If txtAccNum.Focused Then
@@ -128,17 +125,24 @@ Public Class frmLogin
         End If
     End Sub
 
-    Private Sub lblEnter_Click(sender As Object, e As EventArgs) Handles lblEnter.Click
-        loginEnter()
+    Private Sub frmLogin_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
     End Sub
 
+    Private Sub btnCancel_Click(sender As Object, e As EventArgs) Handles btnCancel.Click
+        Me.Close()
+    End Sub
 
-    Private Sub lblClear_Click(sender As Object, e As EventArgs) Handles lblClear.Click
+    Private Sub btnClear_Click(sender As Object, e As EventArgs) Handles btnClear.Click
         txtAccNum.Clear()
         txtPIN.Clear()
     End Sub
 
-    Private Sub btnDel_Click(sender As Object, e As EventArgs) Handles btnDel.Click
+    Private Sub btnEnter_Click(sender As Object, e As EventArgs) Handles btnEnter.Click
+        loginEnter()
+    End Sub
+
+    Private Sub btnDel_Click_1(sender As Object, e As EventArgs) Handles btnDel.Click
         If txtAccNum.Focused Then
             If txtAccNum.Text.Length > 0 Then
                 txtAccNum.Text = txtAccNum.Text.Substring(0, txtAccNum.Text.Length - 1)
@@ -150,9 +154,5 @@ Public Class frmLogin
                 txtPIN.SelectionStart = txtPIN.Text.Length
             End If
         End If
-    End Sub
-
-    Private Sub frmLogin_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
     End Sub
 End Class

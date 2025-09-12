@@ -28,7 +28,7 @@ Public Class frmMain
 
     Private Sub btnLogout_Click(sender As Object, e As EventArgs) Handles btnLogout.Click
         frmLogin.Show()
-        Me.Hide()
+        Me.Close()
 
     End Sub
 
@@ -59,6 +59,7 @@ Public Class frmMain
 
     Private Sub btnFundTransfer_Click(sender As Object, e As EventArgs) Handles btnFundTransfer.Click
         frmFundTransfer.Show()
+        Me.Hide()
     End Sub
 
 End Class

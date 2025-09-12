@@ -9,16 +9,17 @@ Partial Class frmLogin
     ' Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmLogin))
         Label1 = New Label()
         Label2 = New Label()
         txtAccNum = New TextBox()
         txtPIN = New TextBox()
         btnLogin = New Button()
         Panel1 = New Panel()
-        lblEnter = New Label()
-        btnDel = New Label()
-        lblCancel = New Label()
-        lblClear = New Label()
+        btnDel = New Button()
+        btnCancel = New Button()
+        btnClear = New Button()
+        btnEnter = New Button()
         lbl0 = New Label()
         lblEmpty = New Label()
         lbl9 = New Label()
@@ -33,6 +34,7 @@ Partial Class frmLogin
         lbl1 = New Label()
         PictureBox1 = New PictureBox()
         Panel2 = New Panel()
+        PictureBox3 = New PictureBox()
         Label4 = New Label()
         PictureBox2 = New PictureBox()
         Panel3 = New Panel()
@@ -41,6 +43,7 @@ Partial Class frmLogin
         Panel1.SuspendLayout()
         CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
         Panel2.SuspendLayout()
+        CType(PictureBox3, ComponentModel.ISupportInitialize).BeginInit()
         CType(PictureBox2, ComponentModel.ISupportInitialize).BeginInit()
         Panel3.SuspendLayout()
         CType(PictureBox4, ComponentModel.ISupportInitialize).BeginInit()
@@ -50,8 +53,8 @@ Partial Class frmLogin
         ' 
         Label1.AutoSize = True
         Label1.Font = New Font("Century Gothic", 12F, FontStyle.Bold)
-        Label1.ForeColor = Color.LightGray
-        Label1.Location = New Point(38, 85)
+        Label1.ForeColor = Color.WhiteSmoke
+        Label1.Location = New Point(47, 77)
         Label1.Name = "Label1"
         Label1.Size = New Size(147, 19)
         Label1.TabIndex = 0
@@ -61,8 +64,8 @@ Partial Class frmLogin
         ' 
         Label2.AutoSize = True
         Label2.Font = New Font("Century Gothic", 12F, FontStyle.Bold)
-        Label2.ForeColor = Color.LightGray
-        Label2.Location = New Point(38, 135)
+        Label2.ForeColor = Color.WhiteSmoke
+        Label2.Location = New Point(47, 127)
         Label2.Name = "Label2"
         Label2.Size = New Size(38, 19)
         Label2.TabIndex = 1
@@ -71,7 +74,7 @@ Partial Class frmLogin
         ' txtAccNum
         ' 
         txtAccNum.Font = New Font("Lucida Fax", 11.25F, FontStyle.Bold)
-        txtAccNum.Location = New Point(198, 85)
+        txtAccNum.Location = New Point(207, 77)
         txtAccNum.Name = "txtAccNum"
         txtAccNum.Size = New Size(200, 25)
         txtAccNum.TabIndex = 2
@@ -79,7 +82,7 @@ Partial Class frmLogin
         ' txtPIN
         ' 
         txtPIN.Font = New Font("Lucida Fax", 11.25F, FontStyle.Bold)
-        txtPIN.Location = New Point(198, 135)
+        txtPIN.Location = New Point(207, 127)
         txtPIN.Name = "txtPIN"
         txtPIN.PasswordChar = "*"c
         txtPIN.Size = New Size(200, 25)
@@ -88,11 +91,11 @@ Partial Class frmLogin
         ' 
         ' btnLogin
         ' 
-        btnLogin.BackColor = Color.FromArgb(CByte(0), CByte(120), CByte(215))
+        btnLogin.BackColor = Color.Green
         btnLogin.FlatStyle = FlatStyle.Flat
         btnLogin.Font = New Font("Century Gothic", 11.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         btnLogin.ForeColor = Color.White
-        btnLogin.Location = New Point(198, 185)
+        btnLogin.Location = New Point(207, 177)
         btnLogin.Name = "btnLogin"
         btnLogin.Size = New Size(200, 35)
         btnLogin.TabIndex = 4
@@ -103,10 +106,10 @@ Partial Class frmLogin
         ' 
         Panel1.BackColor = Color.Silver
         Panel1.BorderStyle = BorderStyle.Fixed3D
-        Panel1.Controls.Add(lblEnter)
         Panel1.Controls.Add(btnDel)
-        Panel1.Controls.Add(lblCancel)
-        Panel1.Controls.Add(lblClear)
+        Panel1.Controls.Add(btnCancel)
+        Panel1.Controls.Add(btnClear)
+        Panel1.Controls.Add(btnEnter)
         Panel1.Controls.Add(lbl0)
         Panel1.Controls.Add(lblEmpty)
         Panel1.Controls.Add(lbl9)
@@ -124,56 +127,61 @@ Partial Class frmLogin
         Panel1.Size = New Size(493, 169)
         Panel1.TabIndex = 8
         ' 
-        ' lblEnter
-        ' 
-        lblEnter.AutoSize = True
-        lblEnter.BackColor = Color.ForestGreen
-        lblEnter.BorderStyle = BorderStyle.Fixed3D
-        lblEnter.Font = New Font("Arial Rounded MT Bold", 14.25F)
-        lblEnter.Location = New Point(300, 90)
-        lblEnter.Name = "lblEnter"
-        lblEnter.Size = New Size(82, 24)
-        lblEnter.TabIndex = 36
-        lblEnter.Text = "  Enter  "
-        ' 
         ' btnDel
         ' 
-        btnDel.AutoSize = True
-        btnDel.BackColor = Color.Sienna
-        btnDel.BorderStyle = BorderStyle.Fixed3D
-        btnDel.Font = New Font("Century Gothic", 14.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        btnDel.Location = New Point(300, 124)
+        btnDel.BackColor = Color.Chocolate
+        btnDel.FlatAppearance.BorderSize = 0
+        btnDel.FlatStyle = FlatStyle.Flat
+        btnDel.Font = New Font("Arial Rounded MT Bold", 12F)
+        btnDel.ForeColor = Color.White
+        btnDel.Location = New Point(299, 125)
         btnDel.Name = "btnDel"
-        btnDel.Size = New Size(82, 25)
-        btnDel.TabIndex = 35
-        btnDel.Text = "    Del    "
+        btnDel.Size = New Size(80, 24)
+        btnDel.TabIndex = 39
+        btnDel.Text = "Del"
+        btnDel.UseVisualStyleBackColor = False
         ' 
-        ' lblCancel
+        ' btnCancel
         ' 
-        lblCancel.AutoSize = True
-        lblCancel.BackColor = Color.Brown
-        lblCancel.BorderStyle = BorderStyle.Fixed3D
-        lblCancel.FlatStyle = FlatStyle.Popup
-        lblCancel.Font = New Font("Arial Rounded MT Bold", 14.25F)
-        lblCancel.ForeColor = SystemColors.ControlLight
-        lblCancel.Location = New Point(300, 23)
-        lblCancel.Name = "lblCancel"
-        lblCancel.Size = New Size(80, 24)
-        lblCancel.TabIndex = 34
-        lblCancel.Text = " Cancel"
+        btnCancel.BackColor = Color.Brown
+        btnCancel.FlatAppearance.BorderSize = 0
+        btnCancel.FlatStyle = FlatStyle.Flat
+        btnCancel.Font = New Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        btnCancel.ForeColor = Color.White
+        btnCancel.Location = New Point(300, 23)
+        btnCancel.Name = "btnCancel"
+        btnCancel.Size = New Size(80, 24)
+        btnCancel.TabIndex = 38
+        btnCancel.Text = "Cancel"
+        btnCancel.UseVisualStyleBackColor = False
         ' 
-        ' lblClear
+        ' btnClear
         ' 
-        lblClear.AutoSize = True
-        lblClear.BackColor = Color.Yellow
-        lblClear.BorderStyle = BorderStyle.Fixed3D
-        lblClear.Font = New Font("Arial Rounded MT Bold", 14.25F)
-        lblClear.ForeColor = SystemColors.Desktop
-        lblClear.Location = New Point(300, 55)
-        lblClear.Name = "lblClear"
-        lblClear.Size = New Size(81, 24)
-        lblClear.TabIndex = 33
-        lblClear.Text = "  Clear  "
+        btnClear.BackColor = Color.Yellow
+        btnClear.FlatAppearance.BorderSize = 0
+        btnClear.FlatStyle = FlatStyle.Flat
+        btnClear.Font = New Font("Arial Rounded MT Bold", 12F)
+        btnClear.ForeColor = Color.Black
+        btnClear.Location = New Point(300, 56)
+        btnClear.Name = "btnClear"
+        btnClear.Size = New Size(80, 24)
+        btnClear.TabIndex = 37
+        btnClear.Text = "Clear"
+        btnClear.UseVisualStyleBackColor = False
+        ' 
+        ' btnEnter
+        ' 
+        btnEnter.BackColor = Color.ForestGreen
+        btnEnter.FlatAppearance.BorderSize = 0
+        btnEnter.FlatStyle = FlatStyle.Flat
+        btnEnter.Font = New Font("Arial Rounded MT Bold", 12F)
+        btnEnter.ForeColor = Color.White
+        btnEnter.Location = New Point(300, 89)
+        btnEnter.Name = "btnEnter"
+        btnEnter.Size = New Size(80, 27)
+        btnEnter.TabIndex = 14
+        btnEnter.Text = "Enter"
+        btnEnter.UseVisualStyleBackColor = False
         ' 
         ' lbl0
         ' 
@@ -341,6 +349,7 @@ Partial Class frmLogin
         ' 
         ' Panel2
         ' 
+        Panel2.Controls.Add(PictureBox3)
         Panel2.Controls.Add(Label4)
         Panel2.Controls.Add(PictureBox2)
         Panel2.Controls.Add(Panel3)
@@ -350,19 +359,30 @@ Partial Class frmLogin
         Panel2.Controls.Add(Label2)
         Panel2.Controls.Add(txtAccNum)
         Panel2.Controls.Add(txtPIN)
-        Panel2.Location = New Point(80, 53)
+        Panel2.Location = New Point(79, 53)
         Panel2.Name = "Panel2"
         Panel2.Size = New Size(604, 399)
         Panel2.TabIndex = 37
         ' 
+        ' PictureBox3
+        ' 
+        PictureBox3.BackColor = SystemColors.Window
+        PictureBox3.Image = CType(resources.GetObject("PictureBox3.Image"), Image)
+        PictureBox3.Location = New Point(385, 78)
+        PictureBox3.Name = "PictureBox3"
+        PictureBox3.Size = New Size(21, 22)
+        PictureBox3.SizeMode = PictureBoxSizeMode.StretchImage
+        PictureBox3.TabIndex = 14
+        PictureBox3.TabStop = False
+        ' 
         ' Label4
         ' 
         Label4.AutoSize = True
-        Label4.Font = New Font("Arial Rounded MT Bold", 18F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        Label4.Font = New Font("Arial Rounded MT Bold", 21.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         Label4.ForeColor = SystemColors.ButtonHighlight
-        Label4.Location = New Point(37, 26)
+        Label4.Location = New Point(7, 17)
         Label4.Name = "Label4"
-        Label4.Size = New Size(361, 28)
+        Label4.Size = New Size(436, 33)
         Label4.TabIndex = 13
         Label4.Text = "Welcome to QUICKCASH ATM"
         Label4.TextAlign = ContentAlignment.MiddleCenter
@@ -371,9 +391,9 @@ Partial Class frmLogin
         ' 
         PictureBox2.BackColor = SystemColors.Window
         PictureBox2.Image = My.Resources.Resources.Security_Green_Icon_removebg_preview
-        PictureBox2.Location = New Point(375, 138)
+        PictureBox2.Location = New Point(385, 128)
         PictureBox2.Name = "PictureBox2"
-        PictureBox2.Size = New Size(22, 19)
+        PictureBox2.Size = New Size(21, 22)
         PictureBox2.SizeMode = PictureBoxSizeMode.StretchImage
         PictureBox2.TabIndex = 10
         PictureBox2.TabStop = False
@@ -384,9 +404,9 @@ Partial Class frmLogin
         Panel3.Controls.Add(Label3)
         Panel3.Controls.Add(PictureBox4)
         Panel3.ForeColor = SystemColors.ControlLight
-        Panel3.Location = New Point(443, 0)
+        Panel3.Location = New Point(445, 0)
         Panel3.Name = "Panel3"
-        Panel3.Size = New Size(161, 399)
+        Panel3.Size = New Size(159, 399)
         Panel3.TabIndex = 9
         ' 
         ' Label3
@@ -394,7 +414,7 @@ Partial Class frmLogin
         Label3.AutoSize = True
         Label3.Font = New Font("Arial Rounded MT Bold", 18F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         Label3.ForeColor = Color.DarkOliveGreen
-        Label3.Location = New Point(0, 144)
+        Label3.Location = New Point(-1, 136)
         Label3.Name = "Label3"
         Label3.Size = New Size(168, 56)
         Label3.TabIndex = 12
@@ -403,10 +423,10 @@ Partial Class frmLogin
         ' 
         ' PictureBox4
         ' 
-        PictureBox4.Image = My.Resources.Resources.Bank_Green_app_icon_removebg_preview
-        PictureBox4.Location = New Point(-6, 0)
+        PictureBox4.Image = CType(resources.GetObject("PictureBox4.Image"), Image)
+        PictureBox4.Location = New Point(5, 3)
         PictureBox4.Name = "PictureBox4"
-        PictureBox4.Size = New Size(166, 160)
+        PictureBox4.Size = New Size(151, 130)
         PictureBox4.SizeMode = PictureBoxSizeMode.StretchImage
         PictureBox4.TabIndex = 11
         PictureBox4.TabStop = False
@@ -416,7 +436,7 @@ Partial Class frmLogin
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.DarkOliveGreen
-        ClientSize = New Size(767, 480)
+        ClientSize = New Size(765, 479)
         Controls.Add(Panel2)
         Controls.Add(PictureBox1)
         FormBorderStyle = FormBorderStyle.FixedDialog
@@ -429,6 +449,7 @@ Partial Class frmLogin
         CType(PictureBox1, ComponentModel.ISupportInitialize).EndInit()
         Panel2.ResumeLayout(False)
         Panel2.PerformLayout()
+        CType(PictureBox3, ComponentModel.ISupportInitialize).EndInit()
         CType(PictureBox2, ComponentModel.ISupportInitialize).EndInit()
         Panel3.ResumeLayout(False)
         Panel3.PerformLayout()
@@ -454,10 +475,6 @@ Partial Class frmLogin
     Friend WithEvents lbl9 As Label
     Friend WithEvents lblEmpty1 As Label
     Friend WithEvents lbl8 As Label
-    Friend WithEvents lblEnter As Label
-    Friend WithEvents btnDel As Label
-    Friend WithEvents lblCancel As Label
-    Friend WithEvents lblClear As Label
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents Panel2 As Panel
     Friend WithEvents Panel3 As Panel
@@ -465,4 +482,9 @@ Partial Class frmLogin
     Friend WithEvents PictureBox4 As PictureBox
     Friend WithEvents Label3 As Label
     Friend WithEvents Label4 As Label
+    Friend WithEvents btnClear As Button
+    Friend WithEvents btnEnter As Button
+    Friend WithEvents btnDel As Button
+    Friend WithEvents btnCancel As Button
+    Friend WithEvents PictureBox3 As PictureBox
 End Class
