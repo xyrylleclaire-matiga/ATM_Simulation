@@ -2,11 +2,6 @@
 
 Public Class frmFundTransfer
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        frmMain.Show
-        Close
-    End Sub
-
     'checking if the balance of the user/ logged in account is sufficient for the transfer
     Private Function balanceCheck() As Boolean
         Call connection()
@@ -58,11 +53,10 @@ Public Class frmFundTransfer
         sql = "SELECT * FROM tblaccountbalance WHERE AccountNumber = @accTarget"
         cmd = New MySqlCommand(sql, con)
         cmd.Parameters.AddWithValue("@accTarget", txtTargetAccount.Text)
-        dr = cmd.ExecuteReader
 
-        Dim exists As Boolean = dr.Read()
-        dr.Close()
-        Return exists
+        Using dr As MySqlDataReader = cmd.ExecuteReader()
+            Return dr.Read()
+        End Using
     End Function
 
 
@@ -138,11 +132,136 @@ Public Class frmFundTransfer
 
     'End Sub
 
-
+    'TRANSFER BUTTON
     Private Sub btnTransfer_Click(sender As Object, e As EventArgs) Handles btnTransfer.Click
         If balanceCheck() = False Then Exit Sub
-        If checkAccount() = False Then Exit Sub
+        If checkAccount() = False Then
+            MessageBox.Show("The target account number does not exist. Please check and try again.", "Account Not Found", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            txtTargetAccount.Focus()
+            txtTargetAccount.Clear()
+            txtAmountTransfer.Clear()
+            Exit Sub
+        End If
         transferTransaction()
 
     End Sub
+
+    'FORMAT 0,000
+    Private Sub txtAmountTransfer_TextChanged(sender As Object, e As EventArgs) Handles txtAmountTransfer.TextChanged
+        Dim raw As String = txtAmountTransfer.Text.Replace(",", "")
+        Dim value As Double
+        If Double.TryParse(raw, value) Then
+            txtAmountTransfer.Text = String.Format("{0:N0}", value)
+            txtAmountTransfer.SelectionStart = txtAmountTransfer.Text.Length
+        End If
+    End Sub
+
+
+    ' Number Pad Buttons
+    Private Sub lblNo1_Click_1(sender As Object, e As EventArgs) Handles lblNo1.Click
+        If txtAmountTransfer.Focused Then
+            txtAmountTransfer.AppendText("1")
+        ElseIf txtTargetAccount.Focused Then
+            txtTargetAccount.AppendText("1")
+        End If
+    End Sub
+    Private Sub lblNo2_Click_1(sender As Object, e As EventArgs) Handles lblNo2.Click
+        If txtAmountTransfer.Focused Then
+            txtAmountTransfer.AppendText("2")
+        ElseIf txtTargetAccount.Focused Then
+            txtTargetAccount.AppendText("2")
+        End If
+    End Sub
+    Private Sub lblNo3_Click_1(sender As Object, e As EventArgs) Handles lblNo3.Click
+        If txtAmountTransfer.Focused Then
+            txtAmountTransfer.AppendText("3")
+        ElseIf txtTargetAccount.Focused Then
+            txtTargetAccount.AppendText("3")
+        End If
+    End Sub
+    Private Sub lblNo4_Click_1(sender As Object, e As EventArgs) Handles lblNo4.Click
+        If txtAmountTransfer.Focused Then
+            txtAmountTransfer.AppendText("4")
+        ElseIf txtTargetAccount.Focused Then
+            txtTargetAccount.AppendText("4")
+        End If
+    End Sub
+    Private Sub lblNo5_Click_1(sender As Object, e As EventArgs) Handles lblNo5.Click
+        If txtAmountTransfer.Focused Then
+            txtAmountTransfer.AppendText("5")
+        ElseIf txtTargetAccount.Focused Then
+            txtTargetAccount.AppendText("5")
+        End If
+    End Sub
+    Private Sub lblNo6_Click_1(sender As Object, e As EventArgs) Handles lblNo6.Click
+        If txtAmountTransfer.Focused Then
+            txtAmountTransfer.AppendText("6")
+        ElseIf txtTargetAccount.Focused Then
+            txtTargetAccount.AppendText("6")
+        End If
+    End Sub
+    Private Sub lblNo7_Click_1(sender As Object, e As EventArgs) Handles lblNo7.Click
+        If txtAmountTransfer.Focused Then
+            txtAmountTransfer.AppendText("7")
+        ElseIf txtTargetAccount.Focused Then
+            txtTargetAccount.AppendText("7")
+        End If
+    End Sub
+    Private Sub lblNo8_Click_1(sender As Object, e As EventArgs) Handles lblNo8.Click
+        If txtAmountTransfer.Focused Then
+            txtAmountTransfer.AppendText("8")
+        ElseIf txtTargetAccount.Focused Then
+            txtTargetAccount.AppendText("8")
+        End If
+    End Sub
+    Private Sub lblNo9_Click_1(sender As Object, e As EventArgs) Handles lblNo9.Click
+        If txtAmountTransfer.Focused Then
+            txtAmountTransfer.AppendText("9")
+        ElseIf txtTargetAccount.Focused Then
+            txtTargetAccount.AppendText("9")
+        End If
+    End Sub
+    Private Sub lblNo0_Click_1(sender As Object, e As EventArgs) Handles lblNo0.Click
+        If txtAmountTransfer.Focused Then
+            txtAmountTransfer.AppendText("0")
+        ElseIf txtTargetAccount.Focused Then
+            txtTargetAccount.AppendText("0")
+        End If
+    End Sub
+
+
+    'Cancel Button
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        frmMain.Show()
+        Me.Close()
+    End Sub
+
+
+    'Clear Button
+    Private Sub lblClear_Click(sender As Object, e As EventArgs) Handles lblClear.Click
+        If txtAmountTransfer.Focused Then
+            txtAmountTransfer.Clear()
+        ElseIf txtTargetAccount.Focused Then
+            txtTargetAccount.Clear()
+        End If
+    End Sub
+
+    Private Sub lblDel_Click(sender As Object, e As EventArgs) Handles lblDel.Click
+        Dim pos As Integer = txtAmountTransfer.Text.Length
+        Dim pos1 As Integer = txtTargetAccount.Text.Length
+
+        If txtAmountTransfer.Focused Then
+            If pos > 0 Then
+                txtAmountTransfer.Text = txtAmountTransfer.Text.Remove(pos - 1, 1)
+                txtAmountTransfer.SelectionStart = txtAmountTransfer.Text.Length
+            End If
+        ElseIf txtTargetAccount.Focused Then
+            If pos1 > 0 Then
+                txtTargetAccount.Text = txtTargetAccount.Text.Remove(pos1 - 1, 1)
+                txtTargetAccount.SelectionStart = txtTargetAccount.Text.Length
+            End If
+        End If
+    End Sub
+
+
 End Class

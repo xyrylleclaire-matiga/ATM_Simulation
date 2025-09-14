@@ -2,6 +2,7 @@
 
 Public Class frmWithdrawal
 
+    'Function ng withdraw logic
     Private Sub Withdraw()
         Dim withdrawAmount As Double
         frmBalanceInquiry.LoadBalance()
@@ -62,65 +63,50 @@ Public Class frmWithdrawal
         End Try
     End Sub
 
+    'Withdraw button
     Private Sub btnWithdraw_Click(sender As Object, e As EventArgs) Handles btnWithdraw.Click
         Withdraw()
     End Sub
 
-
+    'Cancel Button
     Private Sub btnCancel_Click(sender As Object, e As EventArgs) Handles btnCancel.Click
         frmMain.Show()
         Me.Hide()
     End Sub
 
-    Private Sub lbl1_Click(sender As Object, e As EventArgs) Handles lbl1.Click
+    'Numpad Buttons
+    Private Sub lbl1_Click(sender As Object, e As EventArgs)
         txtAmount.AppendText("1")
     End Sub
-
-    Private Sub lbl2_Click(sender As Object, e As EventArgs) Handles lbl2.Click
+    Private Sub lbl2_Click(sender As Object, e As EventArgs)
         txtAmount.AppendText("2")
     End Sub
-
-    Private Sub lbl3_Click(sender As Object, e As EventArgs) Handles lbl3.Click
+    Private Sub lbl3_Click(sender As Object, e As EventArgs)
         txtAmount.AppendText("3")
     End Sub
-
-    Private Sub lbl4_Click(sender As Object, e As EventArgs) Handles lbl4.Click
+    Private Sub lbl4_Click(sender As Object, e As EventArgs)
         txtAmount.AppendText("4")
     End Sub
-
-    Private Sub lbl5_Click(sender As Object, e As EventArgs) Handles lbl5.Click
+    Private Sub lbl5_Click(sender As Object, e As EventArgs)
         txtAmount.AppendText("5")
     End Sub
-
-    Private Sub lbl6_Click(sender As Object, e As EventArgs) Handles lbl6.Click
+    Private Sub lbl6_Click(sender As Object, e As EventArgs)
         txtAmount.AppendText("6")
     End Sub
-
-    Private Sub lbl7_Click(sender As Object, e As EventArgs) Handles lbl7.Click
+    Private Sub lbl7_Click(sender As Object, e As EventArgs)
         txtAmount.AppendText("7")
     End Sub
-
-    Private Sub lbl8_Click(sender As Object, e As EventArgs) Handles lbl8.Click
+    Private Sub lbl8_Click(sender As Object, e As EventArgs)
         txtAmount.AppendText("8")
     End Sub
-
-    Private Sub lbl9_Click(sender As Object, e As EventArgs) Handles lbl9.Click
+    Private Sub lbl9_Click(sender As Object, e As EventArgs)
         txtAmount.AppendText("9")
     End Sub
-
-    Private Sub lbl0_Click(sender As Object, e As EventArgs) Handles lbl0.Click
+    Private Sub lbl0_Click(sender As Object, e As EventArgs)
         txtAmount.AppendText("0")
     End Sub
 
-    Private Sub lblCancel_Click(sender As Object, e As EventArgs)
-        Hide
-        frmMain.Show
-    End Sub
-
-    Private Sub lblClear_Click(sender As Object, e As EventArgs) Handles lblClear.Click
-        txtAmount.Clear()
-    End Sub
-
+    'FORMAT 0,000
     Private Sub txtAmount_TextChanged(sender As Object, e As EventArgs) Handles txtAmount.TextChanged
         Dim raw As String = txtAmount.Text.Replace(",", "")
         Dim value As Double
@@ -130,11 +116,18 @@ Public Class frmWithdrawal
         End If
     End Sub
 
-    Private Sub btnDel_Click(sender As Object, e As EventArgs) Handles btnDel.Click
+    'Clear Button
+    Private Sub lblClear_Click_1(sender As Object, e As EventArgs) Handles lblClear.Click
+        txtAmount.Clear()
+    End Sub
+
+    'Delete Button
+    Private Sub lblDel_Click(sender As Object, e As EventArgs) Handles lblDel.Click
         Dim pos As String = txtAmount.Text.Length
         If pos > 0 Then
             txtAmount.Text = txtAmount.Text.Remove(pos - 1, 1)
             txtAmount.SelectionStart = txtAmount.Text.Length
         End If
     End Sub
+
 End Class

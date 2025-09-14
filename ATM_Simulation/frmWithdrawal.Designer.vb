@@ -20,29 +20,38 @@ Partial Class frmWithdrawal
     'NOTE: The following procedure is required by the Windows Form Designer  
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmWithdrawal))
         Label1 = New Label()
         txtAmount = New TextBox()
         btnWithdraw = New Button()
         btnCancel = New Button()
         PictureBox1 = New PictureBox()
         Panel2 = New Panel()
-        Panel3 = New Panel()
-        lbl3 = New Label()
-        btnDel = New Label()
-        lbl1 = New Label()
-        lbl6 = New Label()
-        lblClear = New Label()
-        lbl5 = New Label()
-        lbl0 = New Label()
-        lbl4 = New Label()
-        lbl2 = New Label()
-        lbl9 = New Label()
-        lbl7 = New Label()
-        lbl8 = New Label()
         Button1 = New Button()
+        Panel1 = New Panel()
+        lblDel = New Label()
+        lblClear = New Label()
+        Button3 = New Button()
+        Button4 = New Button()
+        btnDel = New Button()
+        btnClickClear = New Button()
+        lblEmptyy = New Label()
+        lblEmpty = New Label()
+        lblNo0 = New Label()
+        lblNo9 = New Label()
+        lblNo8 = New Label()
+        lblNo7 = New Label()
+        lblNo4 = New Label()
+        lblNo5 = New Label()
+        lblNo6 = New Label()
+        lblNo3 = New Label()
+        lblNo2 = New Label()
+        lblNo1 = New Label()
+        PictureBox2 = New PictureBox()
         CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
         Panel2.SuspendLayout()
-        Panel3.SuspendLayout()
+        Panel1.SuspendLayout()
+        CType(PictureBox2, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' Label1
@@ -50,7 +59,7 @@ Partial Class frmWithdrawal
         Label1.AutoSize = True
         Label1.Font = New Font("Century Gothic", 14.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Label1.ForeColor = Color.FromArgb(CByte(52), CByte(58), CByte(64))
-        Label1.Location = New Point(184, 97)
+        Label1.Location = New Point(196, 87)
         Label1.Name = "Label1"
         Label1.Size = New Size(246, 23)
         Label1.TabIndex = 1
@@ -60,7 +69,7 @@ Partial Class frmWithdrawal
         ' 
         txtAmount.Font = New Font("Arial Rounded MT Bold", 14.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         txtAmount.ForeColor = Color.Black
-        txtAmount.Location = New Point(219, 134)
+        txtAmount.Location = New Point(231, 124)
         txtAmount.Name = "txtAmount"
         txtAmount.Size = New Size(180, 29)
         txtAmount.TabIndex = 2
@@ -73,7 +82,7 @@ Partial Class frmWithdrawal
         btnWithdraw.FlatStyle = FlatStyle.Flat
         btnWithdraw.Font = New Font("Century Gothic", 12F, FontStyle.Bold)
         btnWithdraw.ForeColor = Color.Transparent
-        btnWithdraw.Location = New Point(124, 193)
+        btnWithdraw.Location = New Point(150, 184)
         btnWithdraw.Name = "btnWithdraw"
         btnWithdraw.Size = New Size(178, 35)
         btnWithdraw.TabIndex = 3
@@ -87,7 +96,7 @@ Partial Class frmWithdrawal
         btnCancel.FlatStyle = FlatStyle.Flat
         btnCancel.Font = New Font("Century Gothic", 12F, FontStyle.Bold)
         btnCancel.ForeColor = Color.White
-        btnCancel.Location = New Point(308, 193)
+        btnCancel.Location = New Point(334, 184)
         btnCancel.Name = "btnCancel"
         btnCancel.Size = New Size(178, 35)
         btnCancel.TabIndex = 4
@@ -99,14 +108,13 @@ Partial Class frmWithdrawal
         PictureBox1.Image = My.Resources.Resources.ATM_UI_UX___南街_西洋菜
         PictureBox1.Location = New Point(-1, 0)
         PictureBox1.Name = "PictureBox1"
-        PictureBox1.Size = New Size(769, 482)
+        PictureBox1.Size = New Size(820, 524)
         PictureBox1.SizeMode = PictureBoxSizeMode.StretchImage
         PictureBox1.TabIndex = 10
         PictureBox1.TabStop = False
         ' 
         ' Panel2
         ' 
-        Panel2.Controls.Add(Panel3)
         Panel2.Controls.Add(Button1)
         Panel2.Controls.Add(Label1)
         Panel2.Controls.Add(txtAmount)
@@ -114,180 +122,8 @@ Partial Class frmWithdrawal
         Panel2.Controls.Add(btnWithdraw)
         Panel2.Location = New Point(81, 57)
         Panel2.Name = "Panel2"
-        Panel2.Size = New Size(604, 390)
+        Panel2.Size = New Size(649, 407)
         Panel2.TabIndex = 11
-        ' 
-        ' Panel3
-        ' 
-        Panel3.BackColor = Color.DarkGray
-        Panel3.Controls.Add(lbl3)
-        Panel3.Controls.Add(btnDel)
-        Panel3.Controls.Add(lbl1)
-        Panel3.Controls.Add(lbl6)
-        Panel3.Controls.Add(lblClear)
-        Panel3.Controls.Add(lbl5)
-        Panel3.Controls.Add(lbl0)
-        Panel3.Controls.Add(lbl4)
-        Panel3.Controls.Add(lbl2)
-        Panel3.Controls.Add(lbl9)
-        Panel3.Controls.Add(lbl7)
-        Panel3.Controls.Add(lbl8)
-        Panel3.Location = New Point(0, 234)
-        Panel3.Name = "Panel3"
-        Panel3.Size = New Size(604, 156)
-        Panel3.TabIndex = 11
-        ' 
-        ' lbl3
-        ' 
-        lbl3.AutoSize = True
-        lbl3.BackColor = Color.DimGray
-        lbl3.BorderStyle = BorderStyle.Fixed3D
-        lbl3.Font = New Font("Arial Rounded MT Bold", 14.25F)
-        lbl3.ForeColor = SystemColors.ButtonHighlight
-        lbl3.Location = New Point(352, 15)
-        lbl3.Name = "lbl3"
-        lbl3.Size = New Size(78, 24)
-        lbl3.TabIndex = 23
-        lbl3.Text = "      3     "
-        ' 
-        ' btnDel
-        ' 
-        btnDel.AutoSize = True
-        btnDel.BackColor = Color.Sienna
-        btnDel.Font = New Font("Arial Rounded MT Bold", 14.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        btnDel.Location = New Point(352, 118)
-        btnDel.Name = "btnDel"
-        btnDel.Size = New Size(75, 22)
-        btnDel.TabIndex = 35
-        btnDel.Text = "    Del   "
-        ' 
-        ' lbl1
-        ' 
-        lbl1.AutoSize = True
-        lbl1.BackColor = Color.DimGray
-        lbl1.BorderStyle = BorderStyle.Fixed3D
-        lbl1.Font = New Font("Arial Rounded MT Bold", 14.25F)
-        lbl1.ForeColor = SystemColors.ButtonHighlight
-        lbl1.Location = New Point(184, 16)
-        lbl1.Name = "lbl1"
-        lbl1.Size = New Size(78, 24)
-        lbl1.TabIndex = 21
-        lbl1.Text = "      1     "
-        ' 
-        ' lbl6
-        ' 
-        lbl6.AutoSize = True
-        lbl6.BackColor = Color.DimGray
-        lbl6.BorderStyle = BorderStyle.Fixed3D
-        lbl6.Font = New Font("Arial Rounded MT Bold", 14.25F)
-        lbl6.ForeColor = SystemColors.ButtonHighlight
-        lbl6.Location = New Point(352, 47)
-        lbl6.Name = "lbl6"
-        lbl6.Size = New Size(78, 24)
-        lbl6.TabIndex = 22
-        lbl6.Text = "      6     "
-        ' 
-        ' lblClear
-        ' 
-        lblClear.AutoSize = True
-        lblClear.BackColor = Color.Yellow
-        lblClear.Font = New Font("Arial Rounded MT Bold", 14.25F)
-        lblClear.Location = New Point(185, 116)
-        lblClear.Name = "lblClear"
-        lblClear.Size = New Size(79, 22)
-        lblClear.TabIndex = 33
-        lblClear.Text = "  Clear  "
-        ' 
-        ' lbl5
-        ' 
-        lbl5.AutoSize = True
-        lbl5.BackColor = Color.DimGray
-        lbl5.BorderStyle = BorderStyle.Fixed3D
-        lbl5.Font = New Font("Arial Rounded MT Bold", 14.25F)
-        lbl5.ForeColor = SystemColors.ButtonHighlight
-        lbl5.Location = New Point(268, 47)
-        lbl5.Name = "lbl5"
-        lbl5.Size = New Size(78, 24)
-        lbl5.TabIndex = 24
-        lbl5.Text = "      5     "
-        ' 
-        ' lbl0
-        ' 
-        lbl0.AutoSize = True
-        lbl0.BackColor = Color.DimGray
-        lbl0.BorderStyle = BorderStyle.Fixed3D
-        lbl0.Font = New Font("Arial Rounded MT Bold", 14.25F)
-        lbl0.ForeColor = SystemColors.ButtonHighlight
-        lbl0.Location = New Point(268, 116)
-        lbl0.Name = "lbl0"
-        lbl0.Size = New Size(78, 24)
-        lbl0.TabIndex = 32
-        lbl0.Text = "      0     "
-        ' 
-        ' lbl4
-        ' 
-        lbl4.AutoSize = True
-        lbl4.BackColor = Color.DimGray
-        lbl4.BorderStyle = BorderStyle.Fixed3D
-        lbl4.Font = New Font("Arial Rounded MT Bold", 14.25F)
-        lbl4.ForeColor = SystemColors.ButtonHighlight
-        lbl4.Location = New Point(184, 48)
-        lbl4.Name = "lbl4"
-        lbl4.Size = New Size(78, 24)
-        lbl4.TabIndex = 25
-        lbl4.Text = "      4     "
-        ' 
-        ' lbl2
-        ' 
-        lbl2.AutoSize = True
-        lbl2.BackColor = Color.DimGray
-        lbl2.BorderStyle = BorderStyle.Fixed3D
-        lbl2.Font = New Font("Arial Rounded MT Bold", 14.25F)
-        lbl2.ForeColor = SystemColors.ButtonHighlight
-        lbl2.Location = New Point(268, 15)
-        lbl2.Name = "lbl2"
-        lbl2.Size = New Size(78, 24)
-        lbl2.TabIndex = 26
-        lbl2.Text = "      2     "
-        ' 
-        ' lbl9
-        ' 
-        lbl9.AutoSize = True
-        lbl9.BackColor = Color.DimGray
-        lbl9.BorderStyle = BorderStyle.Fixed3D
-        lbl9.Font = New Font("Arial Rounded MT Bold", 14.25F)
-        lbl9.ForeColor = SystemColors.ButtonHighlight
-        lbl9.Location = New Point(352, 82)
-        lbl9.Name = "lbl9"
-        lbl9.Size = New Size(78, 24)
-        lbl9.TabIndex = 30
-        lbl9.Text = "      9     "
-        ' 
-        ' lbl7
-        ' 
-        lbl7.AutoSize = True
-        lbl7.BackColor = Color.DimGray
-        lbl7.BorderStyle = BorderStyle.Fixed3D
-        lbl7.Font = New Font("Arial Rounded MT Bold", 14.25F)
-        lbl7.ForeColor = SystemColors.ButtonHighlight
-        lbl7.Location = New Point(185, 83)
-        lbl7.Name = "lbl7"
-        lbl7.Size = New Size(78, 24)
-        lbl7.TabIndex = 27
-        lbl7.Text = "      7     "
-        ' 
-        ' lbl8
-        ' 
-        lbl8.AutoSize = True
-        lbl8.BackColor = Color.DimGray
-        lbl8.BorderStyle = BorderStyle.Fixed3D
-        lbl8.Font = New Font("Arial Rounded MT Bold", 14.25F)
-        lbl8.ForeColor = SystemColors.ButtonHighlight
-        lbl8.Location = New Point(268, 82)
-        lbl8.Name = "lbl8"
-        lbl8.Size = New Size(78, 24)
-        lbl8.TabIndex = 28
-        lbl8.Text = "      8     "
         ' 
         ' Button1
         ' 
@@ -295,20 +131,274 @@ Partial Class frmWithdrawal
         Button1.FlatStyle = FlatStyle.Flat
         Button1.Font = New Font("Century Gothic", 18F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Button1.ForeColor = SystemColors.ControlLightLight
-        Button1.Location = New Point(-8, 19)
+        Button1.Location = New Point(-11, 16)
         Button1.Name = "Button1"
-        Button1.Size = New Size(612, 51)
-        Button1.TabIndex = 10
-        Button1.Text = "  Withdraw"
+        Button1.Size = New Size(674, 51)
+        Button1.TabIndex = 42
+        Button1.Text = "   Withdraw "
         Button1.TextAlign = ContentAlignment.MiddleLeft
         Button1.UseVisualStyleBackColor = False
+        ' 
+        ' Panel1
+        ' 
+        Panel1.BackColor = Color.DarkGray
+        Panel1.Controls.Add(lblDel)
+        Panel1.Controls.Add(lblClear)
+        Panel1.Controls.Add(Button3)
+        Panel1.Controls.Add(Button4)
+        Panel1.Controls.Add(btnDel)
+        Panel1.Controls.Add(btnClickClear)
+        Panel1.Controls.Add(lblEmptyy)
+        Panel1.Controls.Add(lblEmpty)
+        Panel1.Controls.Add(lblNo0)
+        Panel1.Controls.Add(lblNo9)
+        Panel1.Controls.Add(lblNo8)
+        Panel1.Controls.Add(lblNo7)
+        Panel1.Controls.Add(lblNo4)
+        Panel1.Controls.Add(lblNo5)
+        Panel1.Controls.Add(lblNo6)
+        Panel1.Controls.Add(lblNo3)
+        Panel1.Controls.Add(lblNo2)
+        Panel1.Controls.Add(lblNo1)
+        Panel1.Controls.Add(PictureBox2)
+        Panel1.Location = New Point(81, 291)
+        Panel1.Name = "Panel1"
+        Panel1.Size = New Size(649, 173)
+        Panel1.TabIndex = 68
+        ' 
+        ' lblDel
+        ' 
+        lblDel.AutoSize = True
+        lblDel.BackColor = Color.DarkKhaki
+        lblDel.Font = New Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        lblDel.ForeColor = Color.FromArgb(CByte(64), CByte(64), CByte(64))
+        lblDel.Location = New Point(383, 56)
+        lblDel.Name = "lblDel"
+        lblDel.Size = New Size(65, 18)
+        lblDel.TabIndex = 71
+        lblDel.Text = "   DEL   "
+        ' 
+        ' lblClear
+        ' 
+        lblClear.AutoSize = True
+        lblClear.BackColor = Color.Yellow
+        lblClear.Font = New Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        lblClear.ForeColor = Color.FromArgb(CByte(64), CByte(64), CByte(64))
+        lblClear.Location = New Point(383, 14)
+        lblClear.Name = "lblClear"
+        lblClear.Size = New Size(65, 18)
+        lblClear.TabIndex = 44
+        lblClear.Text = "CLEAR"
+        ' 
+        ' Button3
+        ' 
+        Button3.BackColor = Color.WhiteSmoke
+        Button3.Font = New Font("Arial Rounded MT Bold", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        Button3.ForeColor = Color.FromArgb(CByte(64), CByte(64), CByte(64))
+        Button3.Location = New Point(378, 128)
+        Button3.Name = "Button3"
+        Button3.Size = New Size(76, 38)
+        Button3.TabIndex = 69
+        Button3.Text = " "
+        Button3.UseVisualStyleBackColor = False
+        ' 
+        ' Button4
+        ' 
+        Button4.BackColor = Color.WhiteSmoke
+        Button4.Font = New Font("Arial Rounded MT Bold", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        Button4.ForeColor = Color.FromArgb(CByte(64), CByte(64), CByte(64))
+        Button4.Location = New Point(378, 88)
+        Button4.Name = "Button4"
+        Button4.Size = New Size(76, 38)
+        Button4.TabIndex = 68
+        Button4.Text = " "
+        Button4.UseVisualStyleBackColor = False
+        ' 
+        ' btnDel
+        ' 
+        btnDel.BackColor = Color.DarkKhaki
+        btnDel.Font = New Font("Arial Rounded MT Bold", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        btnDel.ForeColor = Color.FromArgb(CByte(64), CByte(64), CByte(64))
+        btnDel.Location = New Point(378, 46)
+        btnDel.Name = "btnDel"
+        btnDel.Size = New Size(76, 38)
+        btnDel.TabIndex = 67
+        btnDel.Text = "DEL"
+        btnDel.UseVisualStyleBackColor = False
+        ' 
+        ' btnClickClear
+        ' 
+        btnClickClear.BackColor = Color.Yellow
+        btnClickClear.Font = New Font("Arial Rounded MT Bold", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        btnClickClear.ForeColor = Color.FromArgb(CByte(64), CByte(64), CByte(64))
+        btnClickClear.Location = New Point(378, 5)
+        btnClickClear.Name = "btnClickClear"
+        btnClickClear.Size = New Size(76, 38)
+        btnClickClear.TabIndex = 66
+        btnClickClear.Text = "CLEAR"
+        btnClickClear.UseVisualStyleBackColor = False
+        ' 
+        ' lblEmptyy
+        ' 
+        lblEmptyy.AutoSize = True
+        lblEmptyy.BackColor = Color.WhiteSmoke
+        lblEmptyy.Font = New Font("Arial Rounded MT Bold", 14.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        lblEmptyy.ForeColor = Color.FromArgb(CByte(64), CByte(64), CByte(64))
+        lblEmptyy.Location = New Point(334, 137)
+        lblEmptyy.Name = "lblEmptyy"
+        lblEmptyy.Size = New Size(20, 22)
+        lblEmptyy.TabIndex = 63
+        lblEmptyy.Text = "  "
+        ' 
+        ' lblEmpty
+        ' 
+        lblEmpty.AutoSize = True
+        lblEmpty.BackColor = Color.WhiteSmoke
+        lblEmpty.Font = New Font("Arial Rounded MT Bold", 14.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        lblEmpty.ForeColor = Color.FromArgb(CByte(64), CByte(64), CByte(64))
+        lblEmpty.Location = New Point(252, 137)
+        lblEmpty.Name = "lblEmpty"
+        lblEmpty.Size = New Size(20, 22)
+        lblEmpty.TabIndex = 62
+        lblEmpty.Text = "  "
+        ' 
+        ' lblNo0
+        ' 
+        lblNo0.AutoSize = True
+        lblNo0.BackColor = Color.WhiteSmoke
+        lblNo0.Font = New Font("Arial Rounded MT Bold", 15.75F)
+        lblNo0.ForeColor = Color.FromArgb(CByte(64), CByte(64), CByte(64))
+        lblNo0.Location = New Point(293, 137)
+        lblNo0.Name = "lblNo0"
+        lblNo0.Size = New Size(22, 24)
+        lblNo0.TabIndex = 61
+        lblNo0.Text = "0"
+        ' 
+        ' lblNo9
+        ' 
+        lblNo9.AutoSize = True
+        lblNo9.BackColor = Color.WhiteSmoke
+        lblNo9.Font = New Font("Arial Rounded MT Bold", 15.75F)
+        lblNo9.ForeColor = Color.FromArgb(CByte(64), CByte(64), CByte(64))
+        lblNo9.Location = New Point(340, 95)
+        lblNo9.Name = "lblNo9"
+        lblNo9.Size = New Size(22, 24)
+        lblNo9.TabIndex = 60
+        lblNo9.Text = "9"
+        ' 
+        ' lblNo8
+        ' 
+        lblNo8.AutoSize = True
+        lblNo8.BackColor = Color.WhiteSmoke
+        lblNo8.Font = New Font("Arial Rounded MT Bold", 15.75F)
+        lblNo8.ForeColor = Color.FromArgb(CByte(64), CByte(64), CByte(64))
+        lblNo8.Location = New Point(294, 95)
+        lblNo8.Name = "lblNo8"
+        lblNo8.Size = New Size(22, 24)
+        lblNo8.TabIndex = 59
+        lblNo8.Text = "8"
+        ' 
+        ' lblNo7
+        ' 
+        lblNo7.AutoSize = True
+        lblNo7.BackColor = Color.WhiteSmoke
+        lblNo7.Font = New Font("Arial Rounded MT Bold", 15.75F)
+        lblNo7.ForeColor = Color.FromArgb(CByte(64), CByte(64), CByte(64))
+        lblNo7.Location = New Point(247, 95)
+        lblNo7.Name = "lblNo7"
+        lblNo7.Size = New Size(22, 24)
+        lblNo7.TabIndex = 58
+        lblNo7.Text = "7"
+        ' 
+        ' lblNo4
+        ' 
+        lblNo4.AutoSize = True
+        lblNo4.BackColor = Color.WhiteSmoke
+        lblNo4.Font = New Font("Arial Rounded MT Bold", 15.75F)
+        lblNo4.ForeColor = Color.FromArgb(CByte(64), CByte(64), CByte(64))
+        lblNo4.Location = New Point(247, 54)
+        lblNo4.Name = "lblNo4"
+        lblNo4.Size = New Size(22, 24)
+        lblNo4.TabIndex = 55
+        lblNo4.Text = "4"
+        ' 
+        ' lblNo5
+        ' 
+        lblNo5.AutoSize = True
+        lblNo5.BackColor = Color.WhiteSmoke
+        lblNo5.Font = New Font("Arial Rounded MT Bold", 15.75F)
+        lblNo5.ForeColor = Color.FromArgb(CByte(64), CByte(64), CByte(64))
+        lblNo5.Location = New Point(293, 54)
+        lblNo5.Name = "lblNo5"
+        lblNo5.Size = New Size(22, 24)
+        lblNo5.TabIndex = 56
+        lblNo5.Text = "5"
+        ' 
+        ' lblNo6
+        ' 
+        lblNo6.AutoSize = True
+        lblNo6.BackColor = Color.WhiteSmoke
+        lblNo6.Font = New Font("Arial Rounded MT Bold", 15.75F)
+        lblNo6.ForeColor = Color.FromArgb(CByte(64), CByte(64), CByte(64))
+        lblNo6.Location = New Point(340, 54)
+        lblNo6.Name = "lblNo6"
+        lblNo6.Size = New Size(22, 24)
+        lblNo6.TabIndex = 57
+        lblNo6.Text = "6"
+        ' 
+        ' lblNo3
+        ' 
+        lblNo3.AutoSize = True
+        lblNo3.BackColor = Color.WhiteSmoke
+        lblNo3.Font = New Font("Arial Rounded MT Bold", 15.75F)
+        lblNo3.ForeColor = Color.FromArgb(CByte(64), CByte(64), CByte(64))
+        lblNo3.Location = New Point(340, 12)
+        lblNo3.Name = "lblNo3"
+        lblNo3.Size = New Size(22, 24)
+        lblNo3.TabIndex = 54
+        lblNo3.Text = "3"
+        ' 
+        ' lblNo2
+        ' 
+        lblNo2.AutoSize = True
+        lblNo2.BackColor = Color.WhiteSmoke
+        lblNo2.Font = New Font("Arial Rounded MT Bold", 15.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        lblNo2.ForeColor = Color.FromArgb(CByte(64), CByte(64), CByte(64))
+        lblNo2.Location = New Point(293, 12)
+        lblNo2.Name = "lblNo2"
+        lblNo2.Size = New Size(22, 24)
+        lblNo2.TabIndex = 53
+        lblNo2.Text = "2"
+        ' 
+        ' lblNo1
+        ' 
+        lblNo1.AutoSize = True
+        lblNo1.BackColor = Color.WhiteSmoke
+        lblNo1.Font = New Font("Arial Rounded MT Bold", 15.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        lblNo1.ForeColor = Color.FromArgb(CByte(64), CByte(64), CByte(64))
+        lblNo1.Location = New Point(247, 12)
+        lblNo1.Name = "lblNo1"
+        lblNo1.Size = New Size(22, 24)
+        lblNo1.TabIndex = 35
+        lblNo1.Text = "1"
+        ' 
+        ' PictureBox2
+        ' 
+        PictureBox2.Image = CType(resources.GetObject("PictureBox2.Image"), Image)
+        PictureBox2.Location = New Point(234, 3)
+        PictureBox2.Name = "PictureBox2"
+        PictureBox2.Size = New Size(140, 169)
+        PictureBox2.SizeMode = PictureBoxSizeMode.StretchImage
+        PictureBox2.TabIndex = 52
+        PictureBox2.TabStop = False
         ' 
         ' frmWithdrawal
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.FromArgb(CByte(248), CByte(249), CByte(250))
-        ClientSize = New Size(767, 480)
+        ClientSize = New Size(815, 523)
+        Controls.Add(Panel1)
         Controls.Add(Panel2)
         Controls.Add(PictureBox1)
         FormBorderStyle = FormBorderStyle.FixedSingle
@@ -319,8 +409,9 @@ Partial Class frmWithdrawal
         CType(PictureBox1, ComponentModel.ISupportInitialize).EndInit()
         Panel2.ResumeLayout(False)
         Panel2.PerformLayout()
-        Panel3.ResumeLayout(False)
-        Panel3.PerformLayout()
+        Panel1.ResumeLayout(False)
+        Panel1.PerformLayout()
+        CType(PictureBox2, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
 
     End Sub
@@ -330,19 +421,26 @@ Partial Class frmWithdrawal
     Friend WithEvents btnCancel As Button
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents Panel2 As Panel
+    Friend WithEvents Panel1 As Panel
+    Friend WithEvents Button3 As Button
+    Friend WithEvents Button4 As Button
+    Friend WithEvents btnDel As Button
+    Friend WithEvents btnClickClear As Button
+    Friend WithEvents lblEmptyy As Label
+    Friend WithEvents lblEmpty As Label
+    Friend WithEvents lblNo0 As Label
+    Friend WithEvents lblNo9 As Label
+    Friend WithEvents lblNo8 As Label
+    Friend WithEvents lblNo7 As Label
+    Friend WithEvents lblNo4 As Label
+    Friend WithEvents lblNo5 As Label
+    Friend WithEvents lblNo6 As Label
+    Friend WithEvents lblNo3 As Label
+    Friend WithEvents lblNo2 As Label
+    Friend WithEvents lblNo1 As Label
+    Friend WithEvents PictureBox2 As PictureBox
     Friend WithEvents Button1 As Button
-    Friend WithEvents Panel3 As Panel
-    Friend WithEvents lbl3 As Label
-    Friend WithEvents btnDel As Label
-    Friend WithEvents lbl1 As Label
-    Friend WithEvents lbl6 As Label
     Friend WithEvents lblClear As Label
-    Friend WithEvents lbl5 As Label
-    Friend WithEvents lbl0 As Label
-    Friend WithEvents lbl4 As Label
-    Friend WithEvents lbl2 As Label
-    Friend WithEvents lbl9 As Label
-    Friend WithEvents lbl7 As Label
-    Friend WithEvents lbl8 As Label
+    Friend WithEvents lblDel As Label
 
 End Class

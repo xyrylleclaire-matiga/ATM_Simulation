@@ -3,6 +3,7 @@ Imports MySql.Data.MySqlClient
 
 Public Class frmDeposit
 
+    'Function ng deposit logic
     Private Sub Deposit()
         Dim depositAmount As Double
 
@@ -56,60 +57,14 @@ Public Class frmDeposit
         End Try
     End Sub
 
-    Private Sub btnDeposit_Click(sender As Object, e As EventArgs) Handles btnDeposit.Click
-        Deposit
-    End Sub
 
+    'Cancel Button
     Private Sub btnCancel_Click(sender As Object, e As EventArgs) Handles btnCancel.Click
         frmMain.Show()
         Me.Hide()
     End Sub
 
-    Private Sub lbl1_Click(sender As Object, e As EventArgs) Handles lbl1.Click
-        txtDepositAmount.AppendText("1")
-    End Sub
-
-    Private Sub lbl2_Click(sender As Object, e As EventArgs) Handles lbl2.Click
-        txtDepositAmount.AppendText("2")
-    End Sub
-
-    Private Sub lbl3_Click(sender As Object, e As EventArgs) Handles lbl3.Click
-        txtDepositAmount.AppendText("3")
-    End Sub
-
-    Private Sub lbl4_Click(sender As Object, e As EventArgs) Handles lbl4.Click
-        txtDepositAmount.AppendText("4")
-    End Sub
-
-    Private Sub lbl5_Click(sender As Object, e As EventArgs) Handles lbl5.Click
-        txtDepositAmount.AppendText("5")
-    End Sub
-
-    Private Sub lbl6_Click(sender As Object, e As EventArgs) Handles lbl6.Click
-        txtDepositAmount.AppendText("6")
-    End Sub
-
-    Private Sub lbl7_Click(sender As Object, e As EventArgs) Handles lbl7.Click
-        txtDepositAmount.AppendText("7")
-    End Sub
-
-    Private Sub lbl8_Click(sender As Object, e As EventArgs) Handles lbl8.Click
-        txtDepositAmount.AppendText("8")
-    End Sub
-
-    Private Sub lbl9_Click(sender As Object, e As EventArgs) Handles lbl9.Click
-        txtDepositAmount.AppendText("9")
-    End Sub
-
-    Private Sub lbl0_Click(sender As Object, e As EventArgs) Handles lbl0.Click
-        txtDepositAmount.AppendText("0")
-    End Sub
-
-
-    Private Sub lblClear_Click(sender As Object, e As EventArgs)
-        txtDepositAmount.Clear
-    End Sub
-
+    'FORMAT 0,000
     Private Sub txtDepositAmount_TextChanged(sender As Object, e As EventArgs) Handles txtDepositAmount.TextChanged
         Dim raw As String = txtDepositAmount.Text.Replace(",", "")
         Dim value As Double
@@ -120,18 +75,58 @@ Public Class frmDeposit
 
     End Sub
 
+    ' Keypad Buttons
+    Private Sub lblNo1_Click(sender As Object, e As EventArgs) Handles lblNo1.Click
+        txtDepositAmount.AppendText("1")
+    End Sub
 
-    Private Sub btnDel_Click(sender As Object, e As EventArgs) Handles btnDel.Click
+    Private Sub lblNo2_Click(sender As Object, e As EventArgs) Handles lblNo2.Click
+        txtDepositAmount.AppendText("2")
+    End Sub
+    Private Sub lblNo3_Click(sender As Object, e As EventArgs) Handles lblNo3.Click
+        txtDepositAmount.AppendText("3")
+    End Sub
+    Private Sub lblNo4_Click(sender As Object, e As EventArgs) Handles lblNo4.Click
+        txtDepositAmount.AppendText("4")
+    End Sub
+    Private Sub lblNo5_Click(sender As Object, e As EventArgs) Handles lblNo5.Click
+        txtDepositAmount.AppendText("5")
+    End Sub
+    Private Sub lblNo6_Click(sender As Object, e As EventArgs) Handles lblNo6.Click
+        txtDepositAmount.AppendText("6")
+    End Sub
+    Private Sub lblNo7_Click(sender As Object, e As EventArgs) Handles lblNo7.Click
+        txtDepositAmount.AppendText("7")
+    End Sub
+    Private Sub lblNo8_Click(sender As Object, e As EventArgs) Handles lblNo8.Click
+        txtDepositAmount.AppendText("8")
+    End Sub
+    Private Sub lblNo9_Click(sender As Object, e As EventArgs) Handles lblNo9.Click
+        txtDepositAmount.AppendText("9")
+    End Sub
+    Private Sub lblNo0_Click(sender As Object, e As EventArgs) Handles lblNo0.Click
+        txtDepositAmount.AppendText("0")
+    End Sub
+
+
+    'Deposit Button
+    Private Sub btnDeposit_Click(sender As Object, e As EventArgs) Handles btnDeposit.Click
+        Deposit()
+    End Sub
+
+
+    ' Clear Button
+    Private Sub btnClear_Click(sender As Object, e As EventArgs) Handles btnClear.Click
+        txtDepositAmount.Clear()
+    End Sub
+
+
+    'Del Button
+    Private Sub lblDel_Click(sender As Object, e As EventArgs) Handles lblDel.Click
         Dim pos As String = txtDepositAmount.Text.Length
         If pos > 0 Then
             txtDepositAmount.Text = txtDepositAmount.Text.Remove(pos - 1, 1)
             txtDepositAmount.SelectionStart = txtDepositAmount.Text.Length
         End If
     End Sub
-
-    Private Sub lblClear_Click_1(sender As Object, e As EventArgs) Handles lblClear.Click
-        frmMain.Show()
-        Me.Hide()
-    End Sub
-
 End Class
