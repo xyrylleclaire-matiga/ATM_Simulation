@@ -22,6 +22,8 @@ Partial Class frmMain
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        components = New ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmMain))
         PictureBox1 = New PictureBox()
         Panel2 = New Panel()
         TextBox1 = New TextBox()
@@ -32,20 +34,22 @@ Partial Class frmMain
         btnMiniStatement = New Button()
         btnFundTransfer = New Button()
         TextBox2 = New TextBox()
-        lblUser = New Label()
-        lbl = New Label()
         lblUserAccountNumber = New Label()
-        lblAccountNumberDisplay = New Label()
-        PictureBox2 = New PictureBox()
         Panel1 = New Panel()
         Panel3 = New Panel()
-        PictureBox3 = New PictureBox()
+        lblDateTime = New Label()
+        PictureBox5 = New PictureBox()
+        PictureBox4 = New PictureBox()
+        lblUser = New Label()
+        lblAccountNumberDisplay = New Label()
+        lbl = New Label()
+        timer1 = New Timer(components)
         CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
         Panel2.SuspendLayout()
-        CType(PictureBox2, ComponentModel.ISupportInitialize).BeginInit()
         Panel1.SuspendLayout()
         Panel3.SuspendLayout()
-        CType(PictureBox3, ComponentModel.ISupportInitialize).BeginInit()
+        CType(PictureBox5, ComponentModel.ISupportInitialize).BeginInit()
+        CType(PictureBox4, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' PictureBox1
@@ -98,7 +102,7 @@ Partial Class frmMain
         ' 
         ' btnBalanceInquiry
         ' 
-        btnBalanceInquiry.BackColor = Color.DarkOliveGreen
+        btnBalanceInquiry.BackColor = Color.DarkSlateGray
         btnBalanceInquiry.FlatAppearance.BorderSize = 0
         btnBalanceInquiry.FlatStyle = FlatStyle.Flat
         btnBalanceInquiry.Font = New Font("Arial Rounded MT Bold", 12.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
@@ -113,7 +117,7 @@ Partial Class frmMain
         ' 
         ' btnDeposit
         ' 
-        btnDeposit.BackColor = Color.DarkOliveGreen
+        btnDeposit.BackColor = Color.DarkSlateGray
         btnDeposit.FlatAppearance.BorderSize = 0
         btnDeposit.FlatStyle = FlatStyle.Flat
         btnDeposit.Font = New Font("Arial Rounded MT Bold", 12.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
@@ -128,7 +132,7 @@ Partial Class frmMain
         ' 
         ' btnWithdrawal
         ' 
-        btnWithdrawal.BackColor = Color.DarkOliveGreen
+        btnWithdrawal.BackColor = Color.DarkSlateGray
         btnWithdrawal.FlatAppearance.BorderSize = 0
         btnWithdrawal.FlatStyle = FlatStyle.Flat
         btnWithdrawal.Font = New Font("Arial Rounded MT Bold", 12.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
@@ -143,7 +147,7 @@ Partial Class frmMain
         ' 
         ' btnMiniStatement
         ' 
-        btnMiniStatement.BackColor = Color.DarkOliveGreen
+        btnMiniStatement.BackColor = Color.DarkSlateGray
         btnMiniStatement.FlatAppearance.BorderSize = 0
         btnMiniStatement.FlatStyle = FlatStyle.Flat
         btnMiniStatement.Font = New Font("Arial Rounded MT Bold", 12.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
@@ -158,7 +162,7 @@ Partial Class frmMain
         ' 
         ' btnFundTransfer
         ' 
-        btnFundTransfer.BackColor = Color.DarkOliveGreen
+        btnFundTransfer.BackColor = Color.DarkSlateGray
         btnFundTransfer.FlatAppearance.BorderSize = 0
         btnFundTransfer.FlatStyle = FlatStyle.Flat
         btnFundTransfer.Font = New Font("Arial Rounded MT Bold", 12.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
@@ -181,26 +185,6 @@ Partial Class frmMain
         TextBox2.TabIndex = 11
         TextBox2.Text = "    Transaction"
         ' 
-        ' lblUser
-        ' 
-        lblUser.AutoSize = True
-        lblUser.Font = New Font("Arial Rounded MT Bold", 15.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        lblUser.Location = New Point(98, 8)
-        lblUser.Name = "lblUser"
-        lblUser.Size = New Size(15, 24)
-        lblUser.TabIndex = 13
-        lblUser.Text = " "
-        ' 
-        ' lbl
-        ' 
-        lbl.AutoSize = True
-        lbl.Font = New Font("Century Gothic", 9.75F, FontStyle.Bold)
-        lbl.Location = New Point(132, 42)
-        lbl.Name = "lbl"
-        lbl.Size = New Size(125, 16)
-        lbl.TabIndex = 14
-        lbl.Text = "Account Number: "
-        ' 
         ' lblUserAccountNumber
         ' 
         lblUserAccountNumber.AutoSize = True
@@ -210,26 +194,6 @@ Partial Class frmMain
         lblUserAccountNumber.Size = New Size(15, 23)
         lblUserAccountNumber.TabIndex = 15
         lblUserAccountNumber.Text = " "
-        ' 
-        ' lblAccountNumberDisplay
-        ' 
-        lblAccountNumberDisplay.AutoSize = True
-        lblAccountNumberDisplay.Font = New Font("Century Gothic", 9.75F, FontStyle.Bold)
-        lblAccountNumberDisplay.Location = New Point(251, 42)
-        lblAccountNumberDisplay.Name = "lblAccountNumberDisplay"
-        lblAccountNumberDisplay.Size = New Size(11, 16)
-        lblAccountNumberDisplay.TabIndex = 16
-        lblAccountNumberDisplay.Text = " "
-        ' 
-        ' PictureBox2
-        ' 
-        PictureBox2.Image = My.Resources.Resources.Gemini_Generated_Image_reg5dyreg5dyreg5_removebg_preview1
-        PictureBox2.Location = New Point(23, 2)
-        PictureBox2.Name = "PictureBox2"
-        PictureBox2.Size = New Size(73, 64)
-        PictureBox2.SizeMode = PictureBoxSizeMode.StretchImage
-        PictureBox2.TabIndex = 11
-        PictureBox2.TabStop = False
         ' 
         ' Panel1
         ' 
@@ -245,26 +209,86 @@ Partial Class frmMain
         ' 
         ' Panel3
         ' 
-        Panel3.BackColor = Color.Linen
-        Panel3.Controls.Add(PictureBox3)
-        Panel3.Controls.Add(PictureBox2)
-        Panel3.Controls.Add(lblAccountNumberDisplay)
+        Panel3.BackColor = Color.DarkSlateGray
+        Panel3.Controls.Add(lblDateTime)
+        Panel3.Controls.Add(PictureBox5)
+        Panel3.Controls.Add(PictureBox4)
         Panel3.Controls.Add(lblUser)
+        Panel3.Controls.Add(lblAccountNumberDisplay)
         Panel3.Controls.Add(lbl)
-        Panel3.Location = New Point(-23, 24)
+        Panel3.Location = New Point(0, 0)
         Panel3.Name = "Panel3"
-        Panel3.Size = New Size(671, 64)
-        Panel3.TabIndex = 18
+        Panel3.Size = New Size(648, 63)
+        Panel3.TabIndex = 16
         ' 
-        ' PictureBox3
+        ' lblDateTime
         ' 
-        PictureBox3.Image = My.Resources.Resources.Abstract_credit_cards_icon_by_Flower_Travelin_Man_on__creativemarket_removebg_preview2
-        PictureBox3.Location = New Point(103, 38)
-        PictureBox3.Name = "PictureBox3"
-        PictureBox3.Size = New Size(33, 25)
-        PictureBox3.SizeMode = PictureBoxSizeMode.StretchImage
-        PictureBox3.TabIndex = 18
-        PictureBox3.TabStop = False
+        lblDateTime.AutoSize = True
+        lblDateTime.Font = New Font("Arial Rounded MT Bold", 9.75F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        lblDateTime.ForeColor = Color.White
+        lblDateTime.Location = New Point(423, 5)
+        lblDateTime.Name = "lblDateTime"
+        lblDateTime.Size = New Size(11, 15)
+        lblDateTime.TabIndex = 17
+        lblDateTime.Text = "-"
+        ' 
+        ' PictureBox5
+        ' 
+        PictureBox5.Image = CType(resources.GetObject("PictureBox5.Image"), Image)
+        PictureBox5.Location = New Point(77, 38)
+        PictureBox5.Name = "PictureBox5"
+        PictureBox5.Size = New Size(33, 25)
+        PictureBox5.SizeMode = PictureBoxSizeMode.StretchImage
+        PictureBox5.TabIndex = 20
+        PictureBox5.TabStop = False
+        ' 
+        ' PictureBox4
+        ' 
+        PictureBox4.Image = CType(resources.GetObject("PictureBox4.Image"), Image)
+        PictureBox4.Location = New Point(-9, -9)
+        PictureBox4.Name = "PictureBox4"
+        PictureBox4.Size = New Size(83, 85)
+        PictureBox4.SizeMode = PictureBoxSizeMode.StretchImage
+        PictureBox4.TabIndex = 20
+        PictureBox4.TabStop = False
+        ' 
+        ' lblUser
+        ' 
+        lblUser.AutoSize = True
+        lblUser.BackColor = Color.Transparent
+        lblUser.Font = New Font("Century Schoolbook", 15.75F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        lblUser.ForeColor = Color.White
+        lblUser.Location = New Point(76, 9)
+        lblUser.Name = "lblUser"
+        lblUser.Size = New Size(18, 25)
+        lblUser.TabIndex = 13
+        lblUser.Text = " "
+        ' 
+        ' lblAccountNumberDisplay
+        ' 
+        lblAccountNumberDisplay.AutoSize = True
+        lblAccountNumberDisplay.Font = New Font("Century Gothic", 9.75F, FontStyle.Bold)
+        lblAccountNumberDisplay.ForeColor = Color.White
+        lblAccountNumberDisplay.Location = New Point(229, 42)
+        lblAccountNumberDisplay.Name = "lblAccountNumberDisplay"
+        lblAccountNumberDisplay.Size = New Size(11, 16)
+        lblAccountNumberDisplay.TabIndex = 16
+        lblAccountNumberDisplay.Text = " "
+        ' 
+        ' lbl
+        ' 
+        lbl.AutoSize = True
+        lbl.Font = New Font("Century Gothic", 9.75F, FontStyle.Bold)
+        lbl.ForeColor = Color.White
+        lbl.Location = New Point(106, 42)
+        lbl.Name = "lbl"
+        lbl.Size = New Size(125, 16)
+        lbl.TabIndex = 14
+        lbl.Text = "Account Number: "
+        ' 
+        ' timer1
+        ' 
+        timer1.Interval = 1000
         ' 
         ' frmMain
         ' 
@@ -284,12 +308,12 @@ Partial Class frmMain
         CType(PictureBox1, ComponentModel.ISupportInitialize).EndInit()
         Panel2.ResumeLayout(False)
         Panel2.PerformLayout()
-        CType(PictureBox2, ComponentModel.ISupportInitialize).EndInit()
         Panel1.ResumeLayout(False)
         Panel1.PerformLayout()
         Panel3.ResumeLayout(False)
         Panel3.PerformLayout()
-        CType(PictureBox3, ComponentModel.ISupportInitialize).EndInit()
+        CType(PictureBox5, ComponentModel.ISupportInitialize).EndInit()
+        CType(PictureBox4, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
     End Sub
     Friend WithEvents PictureBox1 As PictureBox
@@ -302,13 +326,15 @@ Partial Class frmMain
     Friend WithEvents btnMiniStatement As Button
     Friend WithEvents btnFundTransfer As Button
     Friend WithEvents TextBox2 As TextBox
-    Friend WithEvents lblUser As Label
-    Friend WithEvents lbl As Label
     Friend WithEvents lblUserAccountNumber As Label
-    Friend WithEvents lblAccountNumberDisplay As Label
-    Friend WithEvents PictureBox2 As PictureBox
     Friend WithEvents Panel1 As Panel
+    Friend WithEvents timer1 As Timer
     Friend WithEvents Panel3 As Panel
-    Friend WithEvents PictureBox3 As PictureBox
+    Friend WithEvents lbl As Label
+    Friend WithEvents lblAccountNumberDisplay As Label
+    Friend WithEvents lblUser As Label
+    Friend WithEvents PictureBox4 As PictureBox
+    Friend WithEvents PictureBox5 As PictureBox
+    Friend WithEvents lblDateTime As Label
 
 End Class

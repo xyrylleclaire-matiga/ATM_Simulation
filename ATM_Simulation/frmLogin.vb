@@ -43,106 +43,12 @@ Public Class frmLogin
         loginEnter()
     End Sub
 
-    Private Sub lbl1_Click(sender As Object, e As EventArgs) Handles lbl1.Click
-        If txtAccNum.Focused Then
-            txtAccNum.AppendText("1")
-        ElseIf txtPIN.Focused Then
-            txtPIN.AppendText("1")
-        End If
 
-    End Sub
-
-    Private Sub lbl2_Click(sender As Object, e As EventArgs) Handles lbl2.Click
-        If txtAccNum.Focused Then
-            txtAccNum.AppendText("2")
-        ElseIf txtPIN.Focused Then
-            txtPIN.AppendText("2")
-        End If
-    End Sub
-
-    Private Sub lbl3_Click(sender As Object, e As EventArgs) Handles lbl3.Click
-        If txtAccNum.Focused Then
-            txtAccNum.AppendText("3")
-        ElseIf txtPIN.Focused Then
-            txtPIN.AppendText("3")
-        End If
-    End Sub
-
-    Private Sub lbl4_Click(sender As Object, e As EventArgs) Handles lbl4.Click
-        If txtAccNum.Focused Then
-            txtAccNum.AppendText("4")
-        ElseIf txtPIN.Focused Then
-            txtPIN.AppendText("4")
-        End If
-    End Sub
-
-    Private Sub lbl5_Click(sender As Object, e As EventArgs) Handles lbl5.Click
-        If txtAccNum.Focused Then
-            txtAccNum.AppendText("5")
-        ElseIf txtPIN.Focused Then
-            txtPIN.AppendText("5")
-        End If
-    End Sub
-
-    Private Sub lbl6_Click(sender As Object, e As EventArgs) Handles lbl6.Click
-        If txtAccNum.Focused Then
-            txtAccNum.AppendText("6")
-        ElseIf txtPIN.Focused Then
-            txtPIN.AppendText("6")
-        End If
-    End Sub
-
-    Private Sub lbl7_Click(sender As Object, e As EventArgs) Handles lbl7.Click
-        If txtAccNum.Focused Then
-            txtAccNum.AppendText("7")
-        ElseIf txtPIN.Focused Then
-            txtPIN.AppendText("7")
-        End If
-    End Sub
-
-    Private Sub lbl8_Click(sender As Object, e As EventArgs) Handles lbl8.Click
-        If txtAccNum.Focused Then
-            txtAccNum.AppendText("8")
-        ElseIf txtPIN.Focused Then
-            txtPIN.AppendText("8")
-        End If
-    End Sub
-
-    Private Sub lbl9_Click(sender As Object, e As EventArgs) Handles lbl9.Click
-        If txtAccNum.Focused Then
-            txtAccNum.AppendText("9")
-        ElseIf txtPIN.Focused Then
-            txtPIN.AppendText("9")
-        End If
-    End Sub
-
-
-    Private Sub lbl0_Click(sender As Object, e As EventArgs) Handles lbl0.Click
-        If txtAccNum.Focused Then
-            txtAccNum.AppendText("0")
-        ElseIf txtPIN.Focused Then
-            txtPIN.AppendText("0")
-        End If
-    End Sub
-
-    Private Sub frmLogin_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
-    End Sub
-
-    Private Sub btnCancel_Click(sender As Object, e As EventArgs) Handles btnCancel.Click
-        Me.Close()
-    End Sub
-
-    Private Sub btnClear_Click(sender As Object, e As EventArgs) Handles btnClear.Click
-        txtAccNum.Clear()
-        txtPIN.Clear()
-    End Sub
-
-    Private Sub btnEnter_Click(sender As Object, e As EventArgs) Handles btnEnter.Click
+    Private Sub lblEnter_Click(sender As Object, e As EventArgs) Handles lblEnter.Click
         loginEnter()
     End Sub
 
-    Private Sub btnDel_Click_1(sender As Object, e As EventArgs) Handles btnDel.Click
+    Private Sub lblDel_Click(sender As Object, e As EventArgs) Handles lblDel.Click
         If txtAccNum.Focused Then
             If txtAccNum.Text.Length > 0 Then
                 txtAccNum.Text = txtAccNum.Text.Substring(0, txtAccNum.Text.Length - 1)
@@ -155,4 +61,90 @@ Public Class frmLogin
             End If
         End If
     End Sub
+
+    Private Sub lblClear_Click(sender As Object, e As EventArgs) Handles lblClear.Click
+        If txtAccNum.Focused Then
+            txtAccNum.Clear()
+        ElseIf txtPIN.Focused Then
+            txtPIN.Clear()
+        End If
+    End Sub
+
+    Private Sub lblCancel_Click(sender As Object, e As EventArgs) Handles lblCancel.Click
+        Me.Close()
+    End Sub
+
+
+    'NUMPAD BUTTONS
+    Private Sub lblNo1_Click(sender As Object, e As EventArgs) Handles lblNo1.Click
+        If txtAccNum.Focused Then
+            txtAccNum.AppendText("1")
+        ElseIf txtPIN.Focused Then
+            txtPIN.AppendText("1")
+        End If
+    End Sub
+    Private Sub lblNo2_Click(sender As Object, e As EventArgs) Handles lblNo2.Click
+        If txtAccNum.Focused Then
+            txtAccNum.AppendText("2")
+        ElseIf txtPIN.Focused Then
+            txtPIN.AppendText("2")
+        End If
+    End Sub
+    Private Sub lblNo3_Click(sender As Object, e As EventArgs) Handles lblNo3.Click
+        If txtAccNum.Focused Then
+            txtAccNum.AppendText("3")
+        ElseIf txtPIN.Focused Then
+            txtPIN.AppendText("3")
+        End If
+    End Sub
+    Private Sub lblNo4_Click(sender As Object, e As EventArgs) Handles lblNo4.Click
+        If txtAccNum.Focused Then
+            txtAccNum.AppendText("4")
+        ElseIf txtPIN.Focused Then
+            txtPIN.AppendText("4")
+        End If
+    End Sub
+    Private Sub lblNo5_Click(sender As Object, e As EventArgs) Handles lblNo5.Click
+        If txtAccNum.Focused Then
+            txtAccNum.AppendText("5")
+        ElseIf txtPIN.Focused Then
+            txtPIN.AppendText("5")
+        End If
+    End Sub
+    Private Sub lblNo6_Click(sender As Object, e As EventArgs) Handles lblNo6.Click
+        If txtAccNum.Focused Then
+            txtAccNum.AppendText("6")
+        ElseIf txtPIN.Focused Then
+            txtPIN.AppendText("6")
+        End If
+    End Sub
+    Private Sub lblNo7_Click(sender As Object, e As EventArgs) Handles lblNo7.Click
+        If txtAccNum.Focused Then
+            txtAccNum.AppendText("7")
+        ElseIf txtPIN.Focused Then
+            txtPIN.AppendText("7")
+        End If
+    End Sub
+    Private Sub lblNo8_Click(sender As Object, e As EventArgs) Handles lblNo8.Click
+        If txtAccNum.Focused Then
+            txtAccNum.AppendText("8")
+        ElseIf txtPIN.Focused Then
+            txtPIN.AppendText("8")
+        End If
+    End Sub
+    Private Sub lblNo9_Click(sender As Object, e As EventArgs) Handles lblNo9.Click
+        If txtAccNum.Focused Then
+            txtAccNum.AppendText("9")
+        ElseIf txtPIN.Focused Then
+            txtPIN.AppendText("9")
+        End If
+    End Sub
+    Private Sub lblNo0_Click(sender As Object, e As EventArgs) Handles lblNo0.Click
+        If txtAccNum.Focused Then
+            txtAccNum.AppendText("0")
+        ElseIf txtPIN.Focused Then
+            txtPIN.AppendText("0")
+        End If
+    End Sub
+
 End Class

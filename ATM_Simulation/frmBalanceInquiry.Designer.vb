@@ -50,8 +50,8 @@ Partial Class frmBalanceInquiry
         ' 
         lblBalanceAmount.AutoSize = True
         lblBalanceAmount.Font = New Font("Segoe UI", 24F, FontStyle.Bold)
-        lblBalanceAmount.ForeColor = Color.DarkOliveGreen
-        lblBalanceAmount.Location = New Point(329, 148)
+        lblBalanceAmount.ForeColor = Color.DarkSlateGray
+        lblBalanceAmount.Location = New Point(315, 149)
         lblBalanceAmount.Name = "lblBalanceAmount"
         lblBalanceAmount.Size = New Size(85, 45)
         lblBalanceAmount.TabIndex = 1
@@ -73,7 +73,7 @@ Partial Class frmBalanceInquiry
         ' 
         ' btnRefresh
         ' 
-        btnRefresh.BackColor = Color.DarkOliveGreen
+        btnRefresh.BackColor = Color.DarkSlateGray
         btnRefresh.FlatAppearance.BorderSize = 0
         btnRefresh.FlatStyle = FlatStyle.Flat
         btnRefresh.Font = New Font("Segoe UI Semibold", 12F, FontStyle.Bold)
@@ -114,7 +114,7 @@ Partial Class frmBalanceInquiry
         ' 
         ' Button2
         ' 
-        Button2.BackColor = Color.DarkOliveGreen
+        Button2.BackColor = Color.DarkSlateGray
         Button2.FlatStyle = FlatStyle.Flat
         Button2.Font = New Font("Century Gothic", 18F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Button2.ForeColor = SystemColors.ControlLightLight

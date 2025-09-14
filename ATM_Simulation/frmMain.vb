@@ -55,11 +55,18 @@ Public Class frmMain
 
     Private Sub frmMain_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         userDetails()
+        timer1.Enabled = True
+        timer1.Interval = 1000
     End Sub
 
     Private Sub btnFundTransfer_Click(sender As Object, e As EventArgs) Handles btnFundTransfer.Click
         frmFundTransfer.Show()
         Me.Hide()
+    End Sub
+
+
+    Private Sub timer1_Tick(sender As Object, e As EventArgs) Handles timer1.Tick
+        lblDateTime.Text = DateTime.Now.ToString("MMMM dd, yyyy hh:mm:ss tt")
     End Sub
 
 End Class

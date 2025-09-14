@@ -26,8 +26,8 @@ Partial Class frmMiniStatement
         lstMiniStatement = New ListBox()
         PictureBox1 = New PictureBox()
         Panel1 = New Panel()
-        Button1 = New Button()
         Button2 = New Button()
+        Button1 = New Button()
         CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
         Panel1.SuspendLayout()
         SuspendLayout()
@@ -73,20 +73,6 @@ Partial Class frmMiniStatement
         Panel1.Size = New Size(643, 406)
         Panel1.TabIndex = 3
         ' 
-        ' Button1
-        ' 
-        Button1.BackColor = Color.DarkOliveGreen
-        Button1.FlatStyle = FlatStyle.Flat
-        Button1.Font = New Font("Century Gothic", 14.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        Button1.ForeColor = SystemColors.ControlLightLight
-        Button1.Location = New Point(-11, 32)
-        Button1.Name = "Button1"
-        Button1.Size = New Size(655, 37)
-        Button1.TabIndex = 11
-        Button1.Text = "   Mini Statement:"
-        Button1.TextAlign = ContentAlignment.MiddleLeft
-        Button1.UseVisualStyleBackColor = False
-        ' 
         ' Button2
         ' 
         Button2.BackColor = Color.FromArgb(CByte(108), CByte(117), CByte(125))
@@ -100,6 +86,20 @@ Partial Class frmMiniStatement
         Button2.TabIndex = 44
         Button2.Text = "Cancel"
         Button2.UseVisualStyleBackColor = False
+        ' 
+        ' Button1
+        ' 
+        Button1.BackColor = Color.DarkSlateGray
+        Button1.FlatStyle = FlatStyle.Flat
+        Button1.Font = New Font("Century Gothic", 14.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Button1.ForeColor = SystemColors.ControlLightLight
+        Button1.Location = New Point(-11, 32)
+        Button1.Name = "Button1"
+        Button1.Size = New Size(655, 37)
+        Button1.TabIndex = 11
+        Button1.Text = "   Mini Statement:"
+        Button1.TextAlign = ContentAlignment.MiddleLeft
+        Button1.UseVisualStyleBackColor = False
         ' 
         ' frmMiniStatement
         ' 

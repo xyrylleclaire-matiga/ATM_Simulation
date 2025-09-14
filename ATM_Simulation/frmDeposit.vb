@@ -129,4 +129,10 @@ Public Class frmDeposit
             txtDepositAmount.SelectionStart = txtDepositAmount.Text.Length
         End If
     End Sub
+
+    Private Sub lblDecimal_Click(sender As Object, e As EventArgs) Handles lblDecimal.Click
+        If txtDepositAmount.Focused AndAlso Not txtDepositAmount.Text.Contains(".") Then
+            txtDepositAmount.AppendText(".")
+        End If
+    End Sub
 End Class

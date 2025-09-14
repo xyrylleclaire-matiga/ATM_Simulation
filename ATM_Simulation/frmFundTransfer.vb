@@ -1,14 +1,17 @@
-﻿Imports MySql.Data.MySqlClient
+﻿Imports Google.Protobuf.WellKnownTypes
+Imports MySql.Data.MySqlClient
 
 Public Class frmFundTransfer
 
+    ' ---------------- BALANCE CHECK () --------------
     'checking if the balance of the user/ logged in account is sufficient for the transfer
     Private Function balanceCheck() As Boolean
-        Call connection()
-        Dim transferAmount As Double
+
+        Dim transferAmountAsString As String = txtAmountTransfer.Text.Replace(",", "")
+        Dim transferAmount As Double = 0
         frmBalanceInquiry.LoadBalance()
 
-        If Not Double.TryParse(txtAmountTransfer.Text.Trim(), transferAmount) OrElse transferAmount <= 0 Then
+        If Not Double.TryParse(transferAmountAsString, transferAmount) OrElse transferAmount <= 0 Then
             MessageBox.Show("Please enter a valid transfer amount.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             txtAmountTransfer.Focus()
             txtAmountTransfer.Clear()
@@ -34,6 +37,7 @@ Public Class frmFundTransfer
                 Dim myBalance As Double = CDbl(dr("BalanceAmount"))
                 If transferAmount > myBalance Then
                     MessageBox.Show("Insufficient balance for this transfer.", "Insufficient Balance", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                    dr.Close()
                     Return False
                 End If
             Else
@@ -47,6 +51,7 @@ Public Class frmFundTransfer
     End Function
 
 
+    ' ---------------- CHECK ACCOUNT () --------------  
     'checking if the Account Number of the target account exists
     Private Function checkAccount() As Boolean
         Call connection()
@@ -60,21 +65,29 @@ Public Class frmFundTransfer
     End Function
 
 
-
+    ' ---------- TRANSFER TRANSACTION () --------------
     ' Transferring the amount to the target account
     Private Sub transferTransaction()
+        Dim transferAmount As Double
+        If Not Double.TryParse(txtAmountTransfer.Text.Replace(",", ""), transferAmount) OrElse transferAmount <= 0 Then
+            MessageBox.Show("Invalid transfer amount!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            txtAmountTransfer.Focus()
+            Return
+        End If
         Try
+
             Call connection()
             Dim transaction As MySqlTransaction = con.BeginTransaction()
+
             sql = "UPDATE tblaccountbalance SET BalanceAmount = BalanceAmount + @transfer WHERE AccountNumber = @accTarget"
             cmd = New MySqlCommand(sql, con, transaction)
-            cmd.Parameters.AddWithValue("@transfer", Double.Parse(txtAmountTransfer.Text.Trim()))
+            cmd.Parameters.AddWithValue("@transfer", transferAmount)
             cmd.Parameters.AddWithValue("@accTarget", txtTargetAccount.Text)
             Dim rowsAffectedTarget As Integer = cmd.ExecuteNonQuery
 
             sql = "UPDATE tblaccountbalance SET BalanceAmount = BalanceAmount - @transfer WHERE AccountNumber = @acc"
             cmd = New MySqlCommand(sql, con, transaction)
-            cmd.Parameters.AddWithValue("@transfer", Double.Parse(txtAmountTransfer.Text.Trim()))
+            cmd.Parameters.AddWithValue("@transfer", transferAmount)
             cmd.Parameters.AddWithValue("@acc", LoggedInAccNum)
             Dim rowsAffectedSender As Integer = cmd.ExecuteNonQuery
 
@@ -132,6 +145,10 @@ Public Class frmFundTransfer
 
     'End Sub
 
+
+
+    '------------------------------ BUTTONS --------------------
+
     'TRANSFER BUTTON
     Private Sub btnTransfer_Click(sender As Object, e As EventArgs) Handles btnTransfer.Click
         If balanceCheck() = False Then Exit Sub
@@ -146,15 +163,19 @@ Public Class frmFundTransfer
 
     End Sub
 
+
     'FORMAT 0,000
-    Private Sub txtAmountTransfer_TextChanged(sender As Object, e As EventArgs) Handles txtAmountTransfer.TextChanged
+    Private Sub txtAmountTransfer_Leave(sender As Object, e As EventArgs) Handles txtAmountTransfer.Leave
+        ' Format lang kapag user nag-leave ng textbox
         Dim raw As String = txtAmountTransfer.Text.Replace(",", "")
         Dim value As Double
         If Double.TryParse(raw, value) Then
-            txtAmountTransfer.Text = String.Format("{0:N0}", value)
-            txtAmountTransfer.SelectionStart = txtAmountTransfer.Text.Length
+            txtAmountTransfer.Text = value.ToString("N2")
+        Else
+            txtAmountTransfer.Text = "0.00"
         End If
     End Sub
+
 
 
     ' Number Pad Buttons
@@ -229,9 +250,17 @@ Public Class frmFundTransfer
         End If
     End Sub
 
+    'Decimal
+    Private Sub lblDecimal_Click(sender As Object, e As EventArgs) Handles lblDecimal.Click
+        If txtAmountTransfer.Focused AndAlso Not txtAmountTransfer.Text.Contains(".") Then
+            txtAmountTransfer.AppendText(".")
+        End If
+    End Sub
+
+
 
     'Cancel Button
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles btnCancel.Click
         frmMain.Show()
         Me.Close()
     End Sub
@@ -246,6 +275,8 @@ Public Class frmFundTransfer
         End If
     End Sub
 
+
+    'Delete Button
     Private Sub lblDel_Click(sender As Object, e As EventArgs) Handles lblDel.Click
         Dim pos As Integer = txtAmountTransfer.Text.Length
         Dim pos1 As Integer = txtTargetAccount.Text.Length
@@ -262,6 +293,5 @@ Public Class frmFundTransfer
             End If
         End If
     End Sub
-
 
 End Class

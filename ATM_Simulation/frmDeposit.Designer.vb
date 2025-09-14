@@ -48,6 +48,7 @@ Partial Class frmDeposit
         lblNo1 = New Label()
         PictureBox2 = New PictureBox()
         Button1 = New Button()
+        lblDecimal = New Label()
         CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
         Panel2.SuspendLayout()
         Panel1.SuspendLayout()
@@ -76,7 +77,7 @@ Partial Class frmDeposit
         ' 
         ' btnDeposit
         ' 
-        btnDeposit.BackColor = Color.ForestGreen
+        btnDeposit.BackColor = Color.DarkSlateGray
         btnDeposit.FlatAppearance.BorderSize = 0
         btnDeposit.FlatStyle = FlatStyle.Flat
         btnDeposit.Font = New Font("Century Gothic", 12F, FontStyle.Bold)
@@ -128,6 +129,7 @@ Partial Class frmDeposit
         ' Panel1
         ' 
         Panel1.BackColor = Color.DarkGray
+        Panel1.Controls.Add(lblDecimal)
         Panel1.Controls.Add(lblDel)
         Panel1.Controls.Add(btnClear)
         Panel1.Controls.Add(Button3)
@@ -380,7 +382,7 @@ Partial Class frmDeposit
         ' 
         ' Button1
         ' 
-        Button1.BackColor = Color.DarkOliveGreen
+        Button1.BackColor = Color.DarkSlateGray
         Button1.FlatStyle = FlatStyle.Flat
         Button1.Font = New Font("Century Gothic", 18F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         Button1.ForeColor = SystemColors.ControlLightLight
@@ -391,6 +393,18 @@ Partial Class frmDeposit
         Button1.Text = "   Deposit"
         Button1.TextAlign = ContentAlignment.MiddleLeft
         Button1.UseVisualStyleBackColor = False
+        ' 
+        ' lblDecimal
+        ' 
+        lblDecimal.AutoSize = True
+        lblDecimal.BackColor = Color.WhiteSmoke
+        lblDecimal.Font = New Font("Arial Rounded MT Bold", 14.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        lblDecimal.ForeColor = Color.FromArgb(CByte(64), CByte(64), CByte(64))
+        lblDecimal.Location = New Point(241, 137)
+        lblDecimal.Name = "lblDecimal"
+        lblDecimal.Size = New Size(31, 22)
+        lblDecimal.TabIndex = 67
+        lblDecimal.Text = "  . "
         ' 
         ' frmDeposit
         ' 
@@ -442,5 +456,6 @@ Partial Class frmDeposit
     Friend WithEvents Button2 As Button
     Friend WithEvents btnClear As Label
     Friend WithEvents lblDel As Label
+    Friend WithEvents lblDecimal As Label
 
 End Class

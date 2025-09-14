@@ -63,17 +63,6 @@ Public Class frmWithdrawal
         End Try
     End Sub
 
-    'Withdraw button
-    Private Sub btnWithdraw_Click(sender As Object, e As EventArgs) Handles btnWithdraw.Click
-        Withdraw()
-    End Sub
-
-    'Cancel Button
-    Private Sub btnCancel_Click(sender As Object, e As EventArgs) Handles btnCancel.Click
-        frmMain.Show()
-        Me.Hide()
-    End Sub
-
     'Numpad Buttons
     Private Sub lbl1_Click(sender As Object, e As EventArgs)
         txtAmount.AppendText("1")
@@ -128,6 +117,17 @@ Public Class frmWithdrawal
             txtAmount.Text = txtAmount.Text.Remove(pos - 1, 1)
             txtAmount.SelectionStart = txtAmount.Text.Length
         End If
+    End Sub
+
+    'Withdraw Button
+    Private Sub lblWithdraw_Click(sender As Object, e As EventArgs) Handles lblWithdraw.Click
+        Withdraw()
+    End Sub
+
+    'Cancel Button
+    Private Sub lblCancel_Click(sender As Object, e As EventArgs) Handles lblCancel.Click
+        frmMain.Show()
+        Me.Hide()
     End Sub
 
 End Class
