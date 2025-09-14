@@ -38,7 +38,7 @@ Public Class frmDeposit
 
             Dim rowsAffected As Integer = cmd.ExecuteNonQuery()
 
-            If rowsAffected > 0 And rowsAffected <= 10000 Then
+            If rowsAffected > 0 Then
                 transaction.Commit()
                 MessageBox.Show("Deposit successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 txtDepositAmount.Clear()
@@ -65,14 +65,14 @@ Public Class frmDeposit
     End Sub
 
     'FORMAT 0,000
-    Private Sub txtDepositAmount_TextChanged(sender As Object, e As EventArgs) Handles txtDepositAmount.TextChanged
+    Private Sub txtDeposit_Leave(sender As Object, e As EventArgs) Handles txtDepositAmount.Leave
         Dim raw As String = txtDepositAmount.Text.Replace(",", "")
         Dim value As Double
         If Double.TryParse(raw, value) Then
-            txtDepositAmount.Text = String.Format("{0:N0}", value)
-            txtDepositAmount.SelectionStart = txtDepositAmount.Text.Length
+            txtDepositAmount.Text = value.ToString("N2")
+        Else
+            txtDepositAmount.Text = "0.00"
         End If
-
     End Sub
 
     ' Keypad Buttons
@@ -123,7 +123,7 @@ Public Class frmDeposit
 
     'Del Button
     Private Sub lblDel_Click(sender As Object, e As EventArgs) Handles lblDel.Click
-        Dim pos As String = txtDepositAmount.Text.Length
+        Dim pos As Integer = txtDepositAmount.Text.Length
         If pos > 0 Then
             txtDepositAmount.Text = txtDepositAmount.Text.Remove(pos - 1, 1)
             txtDepositAmount.SelectionStart = txtDepositAmount.Text.Length
@@ -135,4 +135,5 @@ Public Class frmDeposit
             txtDepositAmount.AppendText(".")
         End If
     End Sub
+
 End Class

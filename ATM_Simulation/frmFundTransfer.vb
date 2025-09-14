@@ -55,12 +55,35 @@ Public Class frmFundTransfer
     'checking if the Account Number of the target account exists
     Private Function checkAccount() As Boolean
         Call connection()
-        sql = "SELECT * FROM tblaccountbalance WHERE AccountNumber = @accTarget"
+        sql = "SELECT u.FirstName, u.MiddleName, u.LastName " &
+      "FROM tblaccountbalance a " &
+      "INNER JOIN tbluserinfo u ON a.AccountNumber = u.AccountNumber " &
+      "WHERE a.AccountNumber = @accTarget"
+
         cmd = New MySqlCommand(sql, con)
         cmd.Parameters.AddWithValue("@accTarget", txtTargetAccount.Text)
 
         Using dr As MySqlDataReader = cmd.ExecuteReader()
-            Return dr.Read()
+            If dr.Read = True Then
+                Dim realName As String = dr("FirstName").ToString() & " " &
+                         dr("MiddleName").ToString() & " " &
+                         dr("LastName").ToString()
+
+
+                If String.Equals(realName, txtAccountName.Text.Trim(), StringComparison.OrdinalIgnoreCase) Then
+                    Return True
+                Else
+                    MessageBox.Show("The account name does not match the target account number. Please check and try again.", "Name Mismatch", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                    txtAccountName.Clear()
+                    txtTargetAccount.Clear()
+                    Return False
+                End If
+            Else
+                MessageBox.Show("The target account number does not exist. Please check and try again.", "Account Not Found", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                txtAccountName.Clear()
+                txtTargetAccount.Clear()
+                Return False
+            End If
         End Using
     End Function
 
@@ -166,7 +189,6 @@ Public Class frmFundTransfer
 
     'FORMAT 0,000
     Private Sub txtAmountTransfer_Leave(sender As Object, e As EventArgs) Handles txtAmountTransfer.Leave
-        ' Format lang kapag user nag-leave ng textbox
         Dim raw As String = txtAmountTransfer.Text.Replace(",", "")
         Dim value As Double
         If Double.TryParse(raw, value) Then

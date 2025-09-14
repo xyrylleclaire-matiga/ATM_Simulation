@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 14, 2025 at 12:50 PM
+-- Generation Time: Sep 15, 2025 at 01:24 AM
 -- Server version: 10.4.32-MariaDB
--- PHP Version: 8.0.30
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `atm_simulation`
+-- Database: `dbatm_simulation`
 --
 
 -- --------------------------------------------------------
@@ -38,7 +38,8 @@ CREATE TABLE `tblaccountbalance` (
 --
 
 INSERT INTO `tblaccountbalance` (`Account_id`, `AccountNumber`, `BalanceAmount`) VALUES
-(1001, 12345, 1.00);
+(1001, 12345, 11000.00),
+(1002, 12346, 998500.00);
 
 -- --------------------------------------------------------
 
@@ -101,7 +102,7 @@ CREATE TABLE `tbltransaction_history` (
 --
 
 CREATE TABLE `tbluserinfo` (
-  `AccountNumber` int(11) NOT NULL,
+  `AccountNumber` int(20) NOT NULL,
   `FirstName` varchar(255) NOT NULL,
   `LastName` varchar(255) NOT NULL,
   `MiddleName` varchar(255) NOT NULL,
@@ -116,9 +117,8 @@ CREATE TABLE `tbluserinfo` (
 --
 
 INSERT INTO `tbluserinfo` (`AccountNumber`, `FirstName`, `LastName`, `MiddleName`, `EmailAddress`, `ContactNumber`, `PIN`, `Role`) VALUES
-(111, 'Shoyou', 'Lasin', 'Shish', 'sho@gmail.com', 909090909, 111, ''),
-(123, 'Jb', 'Lobrico', 'hehe', 'jb@gmail.com', 99999992, 123, ''),
-(12345, 'Sean', 'Dope', 'Ty', 'SeanTyDope@gmail.com', 99999992, 123456, '');
+(12345, 'Sean', 'Dope', 'Ty', 'SeanTyDope@gmail.com', 99999992, 123456, ''),
+(12346, 'Shoyou', 'Shish', 'Sho', 'shoyou@gmail.com', 90900909, 111, 'User');
 
 --
 -- Indexes for dumped tables
@@ -188,6 +188,12 @@ ALTER TABLE `tblsettings`
   MODIFY `SettingID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `tbluserinfo`
+--
+ALTER TABLE `tbluserinfo`
+  MODIFY `AccountNumber` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12347;
+
+--
 -- Constraints for dumped tables
 --
 
@@ -201,8 +207,8 @@ ALTER TABLE `tblaccountbalance`
 -- Constraints for table `tbltransaction_history`
 --
 ALTER TABLE `tbltransaction_history`
-  ADD CONSTRAINT `tbltransaction_history_ibfk_1` FOREIGN KEY (`receiver_AccountNumber`) REFERENCES `tblaccountbalance` (`Account_id`),
-  ADD CONSTRAINT `tbltransaction_history_ibfk_2` FOREIGN KEY (`sender_AccountNumber`) REFERENCES `tblaccountbalance` (`Account_id`);
+  ADD CONSTRAINT `tbltransaction_history_ibfk_1` FOREIGN KEY (`receiver_AccountNumber`) REFERENCES `tbluserinfo` (`AccountNumber`),
+  ADD CONSTRAINT `tbltransaction_history_ibfk_2` FOREIGN KEY (`sender_AccountNumber`) REFERENCES `tbluserinfo` (`AccountNumber`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

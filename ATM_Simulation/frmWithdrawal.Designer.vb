@@ -33,6 +33,7 @@ Partial Class frmWithdrawal
         btn1000 = New Button()
         btn500 = New Button()
         Panel1 = New Panel()
+        lblDecimal = New Label()
         lblCancel = New Label()
         lblWithdraw = New Label()
         lblDel = New Label()
@@ -81,7 +82,7 @@ Partial Class frmWithdrawal
         txtAmount.Name = "txtAmount"
         txtAmount.Size = New Size(180, 29)
         txtAmount.TabIndex = 2
-        txtAmount.Text = "0.00"
+        txtAmount.Text = " "
         ' 
         ' PictureBox1
         ' 
@@ -194,6 +195,7 @@ Partial Class frmWithdrawal
         ' Panel1
         ' 
         Panel1.BackColor = Color.DarkGray
+        Panel1.Controls.Add(lblDecimal)
         Panel1.Controls.Add(lblCancel)
         Panel1.Controls.Add(lblWithdraw)
         Panel1.Controls.Add(lblDel)
@@ -219,6 +221,18 @@ Partial Class frmWithdrawal
         Panel1.Name = "Panel1"
         Panel1.Size = New Size(423, 183)
         Panel1.TabIndex = 68
+        ' 
+        ' lblDecimal
+        ' 
+        lblDecimal.AutoSize = True
+        lblDecimal.BackColor = Color.WhiteSmoke
+        lblDecimal.Font = New Font("Arial Rounded MT Bold", 14.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        lblDecimal.ForeColor = Color.FromArgb(CByte(64), CByte(64), CByte(64))
+        lblDecimal.Location = New Point(82, 146)
+        lblDecimal.Name = "lblDecimal"
+        lblDecimal.Size = New Size(31, 22)
+        lblDecimal.TabIndex = 70
+        lblDecimal.Text = "  . "
         ' 
         ' lblCancel
         ' 
@@ -543,5 +557,6 @@ Partial Class frmWithdrawal
     Friend WithEvents btnOtherAmount As Button
     Friend WithEvents btn10000 As Button
     Friend WithEvents btn5000 As Button
+    Friend WithEvents lblDecimal As Label
 
 End Class

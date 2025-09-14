@@ -25,6 +25,8 @@ Partial Class frmFundTransfer
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmFundTransfer))
         PictureBox1 = New PictureBox()
         Panel1 = New Panel()
+        txtAccountName = New TextBox()
+        Label2 = New Label()
         Label1 = New Label()
         Label3 = New Label()
         btnTransfer = New Button()
@@ -52,8 +54,6 @@ Partial Class frmFundTransfer
         lblNo2 = New Label()
         lblNo1 = New Label()
         PictureBox2 = New PictureBox()
-        Label2 = New Label()
-        txtAccountName = New TextBox()
         CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
         Panel1.SuspendLayout()
         Panel2.SuspendLayout()
@@ -88,6 +88,25 @@ Partial Class frmFundTransfer
         Panel1.Size = New Size(675, 438)
         Panel1.TabIndex = 2
         ' 
+        ' txtAccountName
+        ' 
+        txtAccountName.Font = New Font("Arial Rounded MT Bold", 14.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        txtAccountName.Location = New Point(37, 177)
+        txtAccountName.Name = "txtAccountName"
+        txtAccountName.Size = New Size(244, 29)
+        txtAccountName.TabIndex = 1
+        ' 
+        ' Label2
+        ' 
+        Label2.AutoSize = True
+        Label2.Font = New Font("Century Gothic", 14.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Label2.ForeColor = Color.FromArgb(CByte(52), CByte(58), CByte(64))
+        Label2.Location = New Point(17, 149)
+        Label2.Name = "Label2"
+        Label2.Size = New Size(155, 23)
+        Label2.TabIndex = 51
+        Label2.Text = "Account Name:"
+        ' 
         ' Label1
         ' 
         Label1.AutoSize = True
@@ -120,7 +139,7 @@ Partial Class frmFundTransfer
         btnTransfer.Location = New Point(140, 221)
         btnTransfer.Name = "btnTransfer"
         btnTransfer.Size = New Size(178, 35)
-        btnTransfer.TabIndex = 2
+        btnTransfer.TabIndex = 3
         btnTransfer.Text = "Transfer"
         btnTransfer.UseVisualStyleBackColor = False
         ' 
@@ -130,8 +149,8 @@ Partial Class frmFundTransfer
         txtAmountTransfer.Location = New Point(391, 149)
         txtAmountTransfer.Name = "txtAmountTransfer"
         txtAmountTransfer.Size = New Size(244, 29)
-        txtAmountTransfer.TabIndex = 1
-        txtAmountTransfer.Text = "0.00"
+        txtAmountTransfer.TabIndex = 2
+        txtAmountTransfer.Text = " "
         ' 
         ' txtTargetAccount
         ' 
@@ -151,7 +170,7 @@ Partial Class frmFundTransfer
         btnCancel.Location = New Point(332, 221)
         btnCancel.Name = "btnCancel"
         btnCancel.Size = New Size(178, 35)
-        btnCancel.TabIndex = 3
+        btnCancel.TabIndex = 4
         btnCancel.Text = "Cancel"
         btnCancel.UseVisualStyleBackColor = False
         ' 
@@ -421,25 +440,6 @@ Partial Class frmFundTransfer
         PictureBox2.SizeMode = PictureBoxSizeMode.StretchImage
         PictureBox2.TabIndex = 52
         PictureBox2.TabStop = False
-        ' 
-        ' Label2
-        ' 
-        Label2.AutoSize = True
-        Label2.Font = New Font("Century Gothic", 14.25F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        Label2.ForeColor = Color.FromArgb(CByte(52), CByte(58), CByte(64))
-        Label2.Location = New Point(17, 149)
-        Label2.Name = "Label2"
-        Label2.Size = New Size(155, 23)
-        Label2.TabIndex = 51
-        Label2.Text = "Account Name:"
-        ' 
-        ' txtAccountName
-        ' 
-        txtAccountName.Font = New Font("Arial Rounded MT Bold", 14.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        txtAccountName.Location = New Point(37, 177)
-        txtAccountName.Name = "txtAccountName"
-        txtAccountName.Size = New Size(244, 29)
-        txtAccountName.TabIndex = 52
         ' 
         ' frmFundTransfer
         ' 
