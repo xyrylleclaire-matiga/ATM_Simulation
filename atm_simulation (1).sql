@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 11, 2025 at 08:47 AM
+-- Generation Time: Sep 14, 2025 at 06:17 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -24,30 +24,42 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `accountbalance`
+-- Table structure for table `tblaccountbalance`
 --
 
-CREATE TABLE `accountbalance` (
+CREATE TABLE `tblaccountbalance` (
   `AccountNumber` varchar(20) NOT NULL,
   `BalanceAmount` decimal(12,2) NOT NULL DEFAULT 0.00
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `accountbalance`
+-- Dumping data for table `tblaccountbalance`
 --
 
-INSERT INTO `accountbalance` (`AccountNumber`, `BalanceAmount`) VALUES
-('111', 1192225.00),
-('123', 30012.00),
+INSERT INTO `tblaccountbalance` (`AccountNumber`, `BalanceAmount`) VALUES
+('111', 1172821.00),
+('123', 31417.00),
 ('12345', 26233.00);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `userinfo`
+-- Table structure for table `tbltransaction_history`
 --
 
-CREATE TABLE `userinfo` (
+CREATE TABLE `tbltransaction_history` (
+  `transaction_number` int(11) NOT NULL,
+  `sender_AccountNumber` int(11) NOT NULL,
+  `receiver_AccountNumber` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbluserinfo`
+--
+
+CREATE TABLE `tbluserinfo` (
   `AccountNumber` int(11) NOT NULL,
   `FirstName` varchar(255) NOT NULL,
   `LastName` varchar(255) NOT NULL,
@@ -58,10 +70,10 @@ CREATE TABLE `userinfo` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `userinfo`
+-- Dumping data for table `tbluserinfo`
 --
 
-INSERT INTO `userinfo` (`AccountNumber`, `FirstName`, `LastName`, `MiddleName`, `EmailAddress`, `ContactNumber`, `PIN`) VALUES
+INSERT INTO `tbluserinfo` (`AccountNumber`, `FirstName`, `LastName`, `MiddleName`, `EmailAddress`, `ContactNumber`, `PIN`) VALUES
 (111, 'Shoyou', 'Lasin', 'Shish', 'sho@gmail.com', 909090909, 111),
 (123, 'Jb', 'Lobrico', 'hehe', 'jb@gmail.com', 99999992, 123),
 (12345, 'Sean', 'Dope', 'Ty', 'SeanTyDope@gmail.com', 99999992, 123456);
@@ -71,15 +83,21 @@ INSERT INTO `userinfo` (`AccountNumber`, `FirstName`, `LastName`, `MiddleName`, 
 --
 
 --
--- Indexes for table `accountbalance`
+-- Indexes for table `tblaccountbalance`
 --
-ALTER TABLE `accountbalance`
+ALTER TABLE `tblaccountbalance`
   ADD PRIMARY KEY (`AccountNumber`);
 
 --
--- Indexes for table `userinfo`
+-- Indexes for table `tbltransaction_history`
 --
-ALTER TABLE `userinfo`
+ALTER TABLE `tbltransaction_history`
+  ADD PRIMARY KEY (`transaction_number`);
+
+--
+-- Indexes for table `tbluserinfo`
+--
+ALTER TABLE `tbluserinfo`
   ADD PRIMARY KEY (`AccountNumber`);
 COMMIT;
 
