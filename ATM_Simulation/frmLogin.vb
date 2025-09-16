@@ -15,10 +15,17 @@ Public Class frmLogin
 
             If dbConnection.dr.Read() Then
                 dbConnection.LoggedInAccNum = txtAccNum.Text.Trim()
+                Dim userRole As String = dbConnection.dr("Role").ToString()
+                lblRole.Text = userRole
                 dbConnection.dr.Close()
                 dbConnection.con.Close()
-                Dim mainForm As New frmMain()
-                mainForm.Show()
+                If userRole = "Admin" Then
+                    frmAdminDashboard.Show()
+                Else
+                    Dim mainForm As New frmMain()
+                    mainForm.Show()
+                End If
+
                 Me.Hide()
                 txtAccNum.Clear()
                 txtPIN.Clear()
@@ -173,4 +180,5 @@ Public Class frmLogin
     Private Sub frmLogin_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         lblAttempts.Text = 3
     End Sub
+
 End Class

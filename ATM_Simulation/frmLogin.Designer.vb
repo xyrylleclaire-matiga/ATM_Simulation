@@ -44,6 +44,7 @@ Partial Class frmLogin
         PictureBox4 = New PictureBox()
         Label4 = New Label()
         PictureBox2 = New PictureBox()
+        lblRole = New Label()
         Panel1.SuspendLayout()
         CType(PictureBox5, ComponentModel.ISupportInitialize).BeginInit()
         CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
@@ -399,6 +400,7 @@ Partial Class frmLogin
         ' Panel2
         ' 
         Panel2.BackColor = Color.CornflowerBlue
+        Panel2.Controls.Add(lblRole)
         Panel2.Controls.Add(lblAttempts)
         Panel2.Controls.Add(PictureBox3)
         Panel2.Controls.Add(PictureBox4)
@@ -469,6 +471,16 @@ Partial Class frmLogin
         PictureBox2.TabIndex = 10
         PictureBox2.TabStop = False
         ' 
+        ' lblRole
+        ' 
+        lblRole.AutoSize = True
+        lblRole.Location = New Point(499, 197)
+        lblRole.Name = "lblRole"
+        lblRole.Size = New Size(30, 15)
+        lblRole.TabIndex = 16
+        lblRole.Text = "Role"
+        lblRole.Visible = False
+        ' 
         ' frmLogin
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
@@ -528,4 +540,5 @@ Partial Class frmLogin
     Friend WithEvents Button1 As Button
     Friend WithEvents btnClickClear As Button
     Friend WithEvents lblAttempts As Label
+    Friend WithEvents lblRole As Label
 End Class

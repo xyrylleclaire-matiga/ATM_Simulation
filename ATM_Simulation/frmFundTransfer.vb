@@ -69,6 +69,13 @@ Public Class frmFundTransfer
                          dr("MiddleName").ToString() & " " &
                          dr("LastName").ToString()
                 txtAccountName.Text = realName.Trim()
+                If txtTargetAccount.Text = LoggedInAccNum Then
+                    MessageBox.Show("You cannot transfer to your own account. Please enter a different account number.", "Invalid Account", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                    txtTargetAccount.Clear()
+                    txtAccountName.Clear()
+                    txtTargetAccount.Focus()
+                    Return False
+                End If
                 Return True
             Else
                 'MessageBox.Show("The target account number does not exist. Please check and try again.", "Account Not Found", MessageBoxButtons.OK, MessageBoxIcon.Warning)
@@ -77,6 +84,7 @@ Public Class frmFundTransfer
                 'txtTargetAccount.Clear()
                 Return False
             End If
+
         End Using
     End Function
 

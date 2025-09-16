@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 16, 2025 at 02:30 AM
+-- Generation Time: Sep 16, 2025 at 03:22 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -38,7 +38,7 @@ CREATE TABLE `tblaccountbalance` (
 --
 
 INSERT INTO `tblaccountbalance` (`Account_id`, `AccountNumber`, `BalanceAmount`) VALUES
-(1001, 12345678, 6975.00),
+(1001, 12345678, 5985.50),
 (1002, 12345679, 101000.00);
 
 -- --------------------------------------------------------
@@ -54,6 +54,15 @@ CREATE TABLE `tbladmin_users` (
   `Password` varchar(255) NOT NULL,
   `Role` enum('Admin','Staff') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `tbladmin_users`
+--
+
+INSERT INTO `tbladmin_users` (`UserID`, `Username`, `FullName`, `Password`, `Role`) VALUES
+(10001, 'RV1cente', 'Ronnel John Vicente', 'Shish', 'Staff'),
+(10002, 'Jblogs', 'Jb Lobrico', 'jblogs', 'Admin'),
+(10003, 'xyhehe', 'Xyrylle Claire Matiga', 'xyxyxy', 'Staff');
 
 -- --------------------------------------------------------
 
@@ -109,17 +118,18 @@ CREATE TABLE `tbluserinfo` (
   `EmailAddress` varchar(255) NOT NULL,
   `ContactNumber` int(11) NOT NULL,
   `PIN` int(11) NOT NULL,
-  `Role` varchar(255) NOT NULL,
-  `attempts` int(11) NOT NULL
+  `attempts` int(11) NOT NULL,
+  `Role` enum('Admin','User') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tbluserinfo`
 --
 
-INSERT INTO `tbluserinfo` (`AccountNumber`, `FirstName`, `LastName`, `MiddleName`, `EmailAddress`, `ContactNumber`, `PIN`, `Role`, `attempts`) VALUES
-(12345678, 'Sean', 'Dope', 'Ty', 'SeanTyDope@gmail.com', 99999992, 0, 'User', 3),
-(12345679, 'Shoyou', 'Shish', 'Sho', 'shoyou@gmail.com', 90900909, 111111, 'User', 3);
+INSERT INTO `tbluserinfo` (`AccountNumber`, `FirstName`, `LastName`, `MiddleName`, `EmailAddress`, `ContactNumber`, `PIN`, `attempts`, `Role`) VALUES
+(1111, 'Admin', '  ', '  ', 'admin@gmail.com', 90900909, 11, 0, 'Admin'),
+(12345678, 'Sean', 'Dope', 'Ty', 'SeanTyDope@gmail.com', 99999992, 0, 3, 'User'),
+(12345679, 'Shoyou', 'Shish', 'Sho', 'shoyou@gmail.com', 90900909, 111111, 3, 'User');
 
 --
 -- Indexes for dumped tables
@@ -174,7 +184,7 @@ ALTER TABLE `tbluserinfo`
 -- AUTO_INCREMENT for table `tbladmin_users`
 --
 ALTER TABLE `tbladmin_users`
-  MODIFY `UserID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `UserID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10004;
 
 --
 -- AUTO_INCREMENT for table `tblreports`
