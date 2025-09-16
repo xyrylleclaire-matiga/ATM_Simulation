@@ -86,15 +86,16 @@ Partial Class frmFundTransfer
         Panel1.Location = New Point(84, 61)
         Panel1.Name = "Panel1"
         Panel1.Size = New Size(675, 438)
-        Panel1.TabIndex = 2
+        Panel1.TabIndex = 10
         ' 
         ' txtAccountName
         ' 
         txtAccountName.Font = New Font("Arial Rounded MT Bold", 14.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         txtAccountName.Location = New Point(37, 177)
         txtAccountName.Name = "txtAccountName"
+        txtAccountName.ReadOnly = True
         txtAccountName.Size = New Size(244, 29)
-        txtAccountName.TabIndex = 1
+        txtAccountName.TabIndex = 10
         ' 
         ' Label2
         ' 
@@ -149,7 +150,7 @@ Partial Class frmFundTransfer
         txtAmountTransfer.Location = New Point(391, 149)
         txtAmountTransfer.Name = "txtAmountTransfer"
         txtAmountTransfer.Size = New Size(244, 29)
-        txtAmountTransfer.TabIndex = 2
+        txtAmountTransfer.TabIndex = 1
         txtAmountTransfer.Text = " "
         ' 
         ' txtTargetAccount

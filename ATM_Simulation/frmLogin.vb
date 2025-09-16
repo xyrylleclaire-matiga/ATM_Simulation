@@ -26,6 +26,22 @@ Public Class frmLogin
                 dbConnection.dr.Close()
                 dbConnection.con.Close()
                 MessageBox.Show("Invalid Account Number or PIN.", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                If String.IsNullOrEmpty(lblAttempts.Text) Then
+                    lblAttempts.Text = "3"
+                End If
+                lblAttempts.Text = (Val(lblAttempts.Text) - 1).ToString()
+                updateAttempts()
+                If lblAttempts.Text = 0 Then
+                    MessageBox.Show("Your account has been locked due to multiple failed login attempts. Please contact the bank.", "Account Locked", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                    Call connection()
+                    sql = "UPDATE tbluserinfo SET attempts = '0' WHERE AccountNumber = '" & txtAccNum.Text & "'"
+                    cmd = New MySqlCommand(sql, con)
+                    cmd.ExecuteNonQuery()
+                    If dbConnection.con.State = ConnectionState.Open Then
+                        dbConnection.con.Close()
+                    End If
+                    Me.Close()
+                End If
                 txtAccNum.Clear()
                 txtPIN.Clear()
             End If
@@ -37,6 +53,13 @@ Public Class frmLogin
                 dbConnection.con.Close()
             End If
         End Try
+    End Sub
+
+    Private Sub updateAttempts()
+        Call connection()
+        sql = "UPDATE tbluserinfo SET attempts = '" & lblAttempts.Text & "' WHERE AccountNumber = '" & txtAccNum.Text & "'"
+        cmd = New MySqlCommand(sql, con)
+        cmd.ExecuteNonQuery()
     End Sub
 
     Private Sub btnLogin_Click(sender As Object, e As EventArgs) Handles btnLogin.Click
@@ -147,4 +170,7 @@ Public Class frmLogin
         End If
     End Sub
 
+    Private Sub frmLogin_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        lblAttempts.Text = 3
+    End Sub
 End Class

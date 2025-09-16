@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 15, 2025 at 01:24 AM
+-- Generation Time: Sep 16, 2025 at 02:30 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -38,8 +38,8 @@ CREATE TABLE `tblaccountbalance` (
 --
 
 INSERT INTO `tblaccountbalance` (`Account_id`, `AccountNumber`, `BalanceAmount`) VALUES
-(1001, 12345, 11000.00),
-(1002, 12346, 998500.00);
+(1001, 12345678, 6975.00),
+(1002, 12345679, 101000.00);
 
 -- --------------------------------------------------------
 
@@ -109,16 +109,17 @@ CREATE TABLE `tbluserinfo` (
   `EmailAddress` varchar(255) NOT NULL,
   `ContactNumber` int(11) NOT NULL,
   `PIN` int(11) NOT NULL,
-  `Role` varchar(255) NOT NULL
+  `Role` varchar(255) NOT NULL,
+  `attempts` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tbluserinfo`
 --
 
-INSERT INTO `tbluserinfo` (`AccountNumber`, `FirstName`, `LastName`, `MiddleName`, `EmailAddress`, `ContactNumber`, `PIN`, `Role`) VALUES
-(12345, 'Sean', 'Dope', 'Ty', 'SeanTyDope@gmail.com', 99999992, 123456, ''),
-(12346, 'Shoyou', 'Shish', 'Sho', 'shoyou@gmail.com', 90900909, 111, 'User');
+INSERT INTO `tbluserinfo` (`AccountNumber`, `FirstName`, `LastName`, `MiddleName`, `EmailAddress`, `ContactNumber`, `PIN`, `Role`, `attempts`) VALUES
+(12345678, 'Sean', 'Dope', 'Ty', 'SeanTyDope@gmail.com', 99999992, 0, 'User', 3),
+(12345679, 'Shoyou', 'Shish', 'Sho', 'shoyou@gmail.com', 90900909, 111111, 'User', 3);
 
 --
 -- Indexes for dumped tables
@@ -191,7 +192,7 @@ ALTER TABLE `tblsettings`
 -- AUTO_INCREMENT for table `tbluserinfo`
 --
 ALTER TABLE `tbluserinfo`
-  MODIFY `AccountNumber` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12347;
+  MODIFY `AccountNumber` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12345680;
 
 --
 -- Constraints for dumped tables

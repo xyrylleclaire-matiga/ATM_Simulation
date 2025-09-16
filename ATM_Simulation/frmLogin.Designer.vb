@@ -39,6 +39,7 @@ Partial Class frmLogin
         PictureBox5 = New PictureBox()
         PictureBox1 = New PictureBox()
         Panel2 = New Panel()
+        lblAttempts = New Label()
         PictureBox3 = New PictureBox()
         PictureBox4 = New PictureBox()
         Label4 = New Label()
@@ -398,6 +399,7 @@ Partial Class frmLogin
         ' Panel2
         ' 
         Panel2.BackColor = Color.CornflowerBlue
+        Panel2.Controls.Add(lblAttempts)
         Panel2.Controls.Add(PictureBox3)
         Panel2.Controls.Add(PictureBox4)
         Panel2.Controls.Add(Label4)
@@ -412,6 +414,16 @@ Partial Class frmLogin
         Panel2.Name = "Panel2"
         Panel2.Size = New Size(604, 399)
         Panel2.TabIndex = 37
+        ' 
+        ' lblAttempts
+        ' 
+        lblAttempts.AutoSize = True
+        lblAttempts.Location = New Point(580, 209)
+        lblAttempts.Name = "lblAttempts"
+        lblAttempts.Size = New Size(12, 15)
+        lblAttempts.TabIndex = 15
+        lblAttempts.Text = "-"
+        lblAttempts.Visible = False
         ' 
         ' PictureBox3
         ' 
@@ -515,4 +527,5 @@ Partial Class frmLogin
     Friend WithEvents Button4 As Button
     Friend WithEvents Button1 As Button
     Friend WithEvents btnClickClear As Button
+    Friend WithEvents lblAttempts As Label
 End Class

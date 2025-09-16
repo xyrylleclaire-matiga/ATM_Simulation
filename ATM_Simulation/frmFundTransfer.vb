@@ -68,20 +68,13 @@ Public Class frmFundTransfer
                 Dim realName As String = dr("FirstName").ToString() & " " &
                          dr("MiddleName").ToString() & " " &
                          dr("LastName").ToString()
-
-
-                If String.Equals(realName, txtAccountName.Text.Trim(), StringComparison.OrdinalIgnoreCase) Then
-                    Return True
-                Else
-                    MessageBox.Show("The account name does not match the target account number. Please check and try again.", "Name Mismatch", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-                    txtAccountName.Clear()
-                    txtTargetAccount.Clear()
-                    Return False
-                End If
+                txtAccountName.Text = realName.Trim()
+                Return True
             Else
-                MessageBox.Show("The target account number does not exist. Please check and try again.", "Account Not Found", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-                txtAccountName.Clear()
-                txtTargetAccount.Clear()
+                'MessageBox.Show("The target account number does not exist. Please check and try again.", "Account Not Found", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                txtAccountName.Text = "Account Not Found"
+                'txtAccountName.Clear()
+                'txtTargetAccount.Clear()
                 Return False
             End If
         End Using
@@ -180,6 +173,7 @@ Public Class frmFundTransfer
             txtTargetAccount.Focus()
             txtTargetAccount.Clear()
             txtAmountTransfer.Clear()
+            txtAccountName.Clear()
             Exit Sub
         End If
         transferTransaction()
@@ -312,6 +306,15 @@ Public Class frmFundTransfer
             If pos1 > 0 Then
                 txtTargetAccount.Text = txtTargetAccount.Text.Remove(pos1 - 1, 1)
                 txtTargetAccount.SelectionStart = txtTargetAccount.Text.Length
+            End If
+        End If
+    End Sub
+
+    ' kapag nag-leave ng textbox (nag Tab out ka)
+    Private Sub txtTargetAccount_Leave(sender As Object, e As EventArgs) Handles txtTargetAccount.Leave
+        If txtTargetAccount.Text.Trim() <> "" Then
+            If checkAccount() = False Then
+                txtTargetAccount.Focus()
             End If
         End If
     End Sub
